@@ -1,0 +1,108 @@
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    color: white;
+}
+
+body {
+    background-color: #222831;
+    text-align: center;
+}
+
+p,
+ul {
+
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 20px;
+
+}
+
+div {
+    height: auto;
+    width: auto;
+    min-width: 700px;
+    border: 2px solid white;
+    background-color: #31363F;
+
+
+}
+
+h2::before {
+    content: "✮ ";
+}
+
+h2::after {
+    content: " ✮";
+}
+
+.detailsContainer {
+    width: auto;
+    height: auto;
+    border-left: none;
+    border-right: none;
+}
+
+div div {
+    background-color: black;
+    margin-top: 20px;
+    border-left: none;
+    border-right: none;
+
+}
+
+div p,
+ul {
+    color: white;
+    font-weight: 700;
+    list-style: square;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border-style: none;
+    margin: 0px 10px;
+    padding: 0.4em;
+    font-size: 2rem;
+    min-width: 70px;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    list-style: "✮ ";
+    text-align: left;
+}
+
+li {
+    margin: 20px 10px;
+}

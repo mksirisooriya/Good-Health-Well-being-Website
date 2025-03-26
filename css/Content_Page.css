@@ -1,0 +1,155 @@
+/* CSS for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* CSS for the container */
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* CSS for the headings */
+  h1, h2 {
+    color: #44c767;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* CSS for the paragraphs */
+  p {
+    padding: 10px 20px;
+    text-align: justify;
+  }
+  
+  /* CSS for the images */
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  /* CSS for the list items */
+  li {
+    padding: 5px 0;
+  }
+  
+  /* CSS for the navigation buttons */
+  .navigate-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    margin-top: 100px;
+  }
+  
+  .navigate-button button {
+    background-color: #44c767;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .navigate-button button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* CSS for the back-to-top button */
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #44c767;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #backToTopBtn:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* CSS for the JavaScript navigation */
+  #navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #navigation:target {
+    display: flex;
+  }
+  
+  #navigation.navigation-content {
+    background-color: #f4f4f4;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #navigation.navigation-content h2 {
+    text-align: center;
+  }
+  
+  #navigation.navigation-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #navigation.navigation-content ul li {
+    padding: 10px 0;
+  }
+  
+  #navigation.navigation-content ul li a {
+    color: #44c767;
+    text-decoration: none;
+  }
+  
+  #navigation.navigation-content ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  #navigation.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #navigation.close:hover {
+    color: #44c767;
+  }

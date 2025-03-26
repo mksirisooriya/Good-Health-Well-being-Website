@@ -1,0 +1,5105 @@
+checkout.css:
+<code>
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+    color: #112D4E;
+    padding: 0.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 11rem;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+body {
+
+    background-color: #71C9CE;
+    color: #112D4E;
+
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+    margin-left: 10rem;
+}
+
+main div {
+    width: 800px;
+    height: 500px;
+    background-color: #A6E3E9;
+    border: 2px solid white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+#billingAddress {
+    height: 650px;
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+}
+
+#contactDetails {
+    height: 475px;
+    grid-row-start: 3;
+    grid-column-start: 1;
+    margin-bottom: 40px;
+}
+
+#orderSummary {
+    height: 500px;
+    width: 500px;
+    grid-row-start: 1;
+    grid-column: 2;
+}
+
+main ul {
+
+    list-style: none;
+
+}
+
+main li {
+    font-size: 2rem;
+    margin: 15px;
+    color: #112D4E;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin-left: 2px;
+}
+
+hr {
+    border: 2px dotted white;
+}
+
+.hrForms {
+    border: 1px solid white;
+}
+
+#orderList {
+    width: auto;
+    height: 250px;
+    margin: 15px;
+    overflow-y: scroll;
+    border-style: none;
+    box-shadow: 2px 2px 2px 2px white;
+}
+
+main button {
+    font-size: 1.5rem;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 20px;
+    color: black;
+
+}
+
+main button:hover {
+    background-color: #112D4E;
+    border: 2px solid white;
+    color: white;
+}
+
+main button:active {
+    box-shadow: 4px 4px 5px white;
+}
+
+
+label {
+    min-width: 90px;
+}
+
+input,
+select {
+    appearance: none;
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 0px;
+    margin: 0px;
+    height: 20px;
+}
+
+form>ul>li {
+    margin: 30px;
+}
+
+input:focus,
+select:focus {
+    border-radius: 5px;
+}
+
+input+span {
+    position: relative;
+}
+
+input+span::before {
+    position: absolute;
+    right: -20px;
+    top: 4px;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:invalid+span::before {
+    content: "✖";
+    color: red;
+}
+
+input:valid+span::before {
+    content: "✓";
+    color: green;
+}
+
+#OrderMsg {
+    color: #112D4E;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 30px;
+}
+</code>
+
+checkout.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <a href="#"><img class="logo" src="Images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <h1> Confirm your order </h1>
+
+    <main id="container">
+
+        <div id="paymentDetails">
+            <h2>Payment Details</h2>
+            <hr class="hrForms">
+            <br>
+            <form id="PD-form">
+                <p>
+                    Required fields are followed by
+                    <strong><span aria-label="required">*</span></strong>
+                </p>
+                <ul>
+                    <li>
+                        <label for="cardNumber">Card Number:*</label>
+                        <input type="tel" id="cardNumber" name="cardnumber" autofocus required><span></span>
+
+                    </li>
+                    <li>
+                        <label for="cardHolderName">Cardholder Name:*</label>
+                        <input type="text" id="cardHolderName" name="cardholder_name" required><span></span>
+                    </li>
+                    <li>
+                        <label for="expiryDate">Expiry Date:*</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY" name="expiry_date" required><span></span>
+                    </li>
+                    <li>
+                        <label for="CCV">CCV:*</label>
+                        <input type="text" id="CCV" name="CCV" required><span></span>
+                    </li>
+                    <li>
+                        <button type="reset">Reset form</button>
+                        <button type="submit">Save changes</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div id="billingAddress">
+            <h2>Billing Address</h2>
+            <hr class="hrForms">
+            <br>
+            <form id="BA-form">
+                <p>
+                    Required fields are followed by
+                    <strong><span aria-label="required">*</span></strong>
+                </p>
+                <ul>
+                    <li>
+                        <label for="addressLine1">Address Line 1:*</label>
+                        <input type="text" id="addressLine1" name="address_line1" required><span></span>
+                    </li>
+                    <li>
+                        <label for="addressLine2">Address Line 2:</label>
+                        <input type="text" id="addressLine2" name="address_line2"><span></span>
+                    </li>
+                    <li>
+                        <label for="addressLine3">Address Line 3:</label>
+                        <input type="text" id="addressLine3" name="address_line3"><span></span>
+                    </li>
+                    <li>
+                        <label for="townOrCity">Town/City:*</label>
+                        <input type="text" id="townOrCity" required name="town_or_city"><span></span>
+                    </li>
+                    <li>
+                        <label for="stateOrCountry">State/Country:</label>
+                        <input type="text" id="stateOrCountry" name="state_or_country"><span></span>
+                    </li>
+                    <li>
+                        <label for="postcodeOrZipCode">Postcode/Zip code:*</label>
+                        <input type="tel" id="postcodeOrZipCode" name="postcode_or_zipcode" required><span></span>
+                    </li>
+                    <li>
+                        <label for="Country">Country:*</label>
+                        <select id="Country" name="country">
+                            <option>Select from list </option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Australia">Australia</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+                    </li>
+                    <li>
+                        <button type="reset">Reset form</button>
+                        <button type="submit">Save changes</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div id="contactDetails">
+            <h2>Contact Details</h2>
+            <hr class="hrForms">
+            <br>
+            <form id="CD-form">
+                <p>
+                    Required fields are followed by
+                    <strong><span aria-label="required">*</span></strong>
+                </p>
+                <ul>
+                    <li>
+                        <label for="firstName">First Name:*</label>
+                        <input type="text" id="firstName" name="first_name" required><span></span>
+                    </li>
+                    <li>
+                        <label for="surName">Surname:*</label>
+                        <input type="text" id="surName" name="surname" required><span></span>
+                    </li>
+                    <li>
+                        <label for="phoneNumber">Phone Number:*</label>
+                        <input type="tel" id="phoneNumber" name="phone_number" required><span></span>
+                    </li>
+                    <li>
+                        <label for="emailAddress">Email Address:*</label>
+                        <input type="email" id="emailAddress" name="email_address" required><span></span>
+                    </li>
+                    <li>
+                        <button type="reset">Reset form</button>
+                        <button type="submit">Save changes</button>
+                    </li>
+                </ul>
+
+            </form>
+        </div>
+        <div id="orderSummary">
+            <h2>Order Summary</h2>
+            <hr class="hrForms">
+            <div id="orderList">
+                <ul id="order-Details"></ul>
+            </div>
+            <h3>Total: Rs <span id="cart-Total"></span></h3>
+            <button id="resetAll-Btn" type="reset">Reset form</button>
+            <button id="submitAll-Btn" type="submit">Confirm order</button>
+            <p id="OrderMsg"></p>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="pageEditor.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+    <script src="checkout.js"></script>
+    <script src="navigation.js"></script>
+</body>
+
+</html>
+</code>
+
+checkout.js:
+<code>
+const orderDetails = document.getElementById("order-Details")
+orderDetails.innerHTML = localStorage.getItem("orderDetails")
+
+const cartTotal = document.getElementById("cart-Total")
+cartTotal.textContent = localStorage.getItem("cartTotal")
+
+const PDForm = document.getElementById("PD-form")
+const BAForm = document.getElementById("BA-form")
+const CDForm = document.getElementById("CD-form")
+const OrderMessage = document.getElementById("OrderMsg")
+
+const resetAllBtn = document.getElementById("resetAll-Btn").addEventListener("click", function () {
+    PDForm.reset()
+    BAForm.reset()
+    CDForm.reset()
+})
+
+const submitAllBtn = document.getElementById("submitAll-Btn").addEventListener("click", function () {
+
+    if (PDForm.checkValidity() && BAForm.checkValidity() && CDForm.checkValidity()) {
+
+        OrderMessage.textContent = "Thank you! Order has been placed"
+        localStorage.clear()
+        document.getElementById("cart-Total").textContent = 0
+        document.getElementById("order-Details").textContent = ""
+        PDForm.reset()
+        BAForm.reset()
+        CDForm.reset()
+    }
+    else {
+
+        OrderMessage.textContent = "Complete all required fields to proceed"
+
+    }
+
+})
+
+
+</code>
+
+contentPage.css:
+<code>
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+    color: #66FCF1;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    margin-top: 120px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+body {
+    background-color: #0B0C10;
+    color: #66FCF1;
+    text-align: center;
+
+}
+
+p {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+    gap: 20px;
+    place-items: center;
+
+}
+
+#container div {
+    width: 600px;
+}
+
+#container div {
+    border: 2px solid #66FCF1;
+
+}
+
+
+.contentNav {
+    border: 2px solid #66FCF1;
+    color: white;
+    background-color: #0B0C10;
+    width: 100%;
+    min-height: 40px;
+    height: auto;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 1em;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    background-color: #0B0C10;
+    width: 100%;
+}
+
+#container div h2::before {
+    content: "╰┈➤ "
+}
+
+main img {
+    width: 100%;
+    height: 400px;
+}
+
+
+
+#Exercise:hover {
+    box-shadow: 5px 5px 5px #66FCF1;
+}
+
+#Vaccination:hover {
+    box-shadow: 5px 5px 5px #66FCF1;
+}
+
+#Meditation:hover {
+    box-shadow: 5px 5px 5px #66FCF1;
+}
+
+#Meditation {
+    margin-bottom: 40px;
+}
+</code>
+
+feedback.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Work+Sans&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/feedback.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>feedback</title>
+</head>
+
+<body>
+  <!--header -->
+  <header>
+    <a href="home.html"><img class="logo" src="assets/images/logo.webp" alt="logo"></a>
+    <nav>
+      <ul class="navigation">
+        <li><a href="home.html" id="home-link">Home</a></li>
+        <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+        <li><a href="shop.html" id="shop-link">Shop</a></li>
+        <li><a href="profile.html" id="profile-link">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback-link" class="active">Feedback</a></li>
+        <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+      </ul>
+    </nav>
+    <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+  </header>
+  <!-- main part -->
+  <main>
+    <!-- Feedback -->
+    <!-- title part -->
+    <div class="hero">
+      <h1 class="hero-h1">We Value Your Feedback !</h1>
+      <p class="hero-p">
+        Please complete the following form and help us improve your journey on our Website.
+      </p>
+      <button class="hero-btn"><a href="#form">Click Here</a></button>
+    </div>
+
+    <!-- form -->
+
+    <section id="form" class="feedback">
+      <div class="feedback-container">
+        <form class="form" action="mailto:matheesha.20230143@iit.ac.lk?subject=Feedback-Form-Submission" method="post"
+          enctype="text/plain">
+          <h3>Feedback Form</h3>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="name">Your Name <span class="required">*</span></label>
+              <input type="text" id="name" placeholder="Enter your name" required>
+              <span class="error-message" id="name-error"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Enter your email">
+
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Was this your first time visiting? <span class="required">*</span></label>
+            <div class="radio-buttons">
+              <div>
+                <input type="radio" id="firstvisit-yes" name="firstvisit" value="yes" required>
+                <label for="firstvisit-yes">Yes</label>
+              </div>
+              <div>
+                <input type="radio" id="firstvisit-no" name="firstvisit" value="no">
+                <label for="firstvisit-no">No</label>
+              </div>
+              <span class="error-message" id="firstvisit-error"></span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Was this website informative and easy to navigate through? <span class="required">*</span></label>
+            <div class="radio-buttons">
+              <div>
+                <input type="radio" id="easytonavigate-yes" name="easytonavigate" value="yes" required>
+                <label for="easytonavigate-yes">Yes</label>
+              </div>
+              <div>
+                <input type="radio" id="easytonavigate-no" name="easytonavigate" value="no">
+                <label for="easytonavigate-no">No</label>
+              </div>
+              <span class="error-message" id="easytonavigate-error"></span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="improvements">If “NO”, Suggest any improvements for the future:</label>
+            <textarea id="improvements" rows="4" placeholder="Enter your message"></textarea>
+          </div>
+          <div class="input-group">
+            <label>How was your experience? <span class="required">*</span></label>
+            <div class="stars">
+              <input type="radio" name="rate" id="rate-5">
+              <label for="rate-5" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-4">
+              <label for="rate-4" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-3">
+              <label for="rate-3" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-2">
+              <label for="rate-2" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-1">
+              <label for="rate-1" class="fas fa-star"></label>
+            </div>
+
+          </div>
+
+          <div class="input-group">
+            <label for="additionalques">Do you have any additional questions or requests?</label>
+            <textarea id="additionalques" rows="4" placeholder="Enter your message"></textarea>
+          </div>
+
+          <button type="button" id="previewBtn">Preview</button>
+
+          <div id="error-messages"></div>
+          <div id="preview-section" style="display: none;"></div>
+
+        </form>
+      </div>
+    </section>
+    <div id="preview-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Preview</h3>
+        <p>Name: <span id="preview-name"></span></p>
+        <p>Email: <span id="preview-email"></span></p>
+        <p>First Visit: <span id="preview-first-visit"></span></p>
+        <p>Easy to Navigate: <span id="preview-easy-to-navigate"></span></p>
+        <p>Improvements: <span id="preview-improvements"></span></p>
+        <p>Star Rating: <span id="preview-star-rating"></span></p>
+        <p>Additional Questions: <span id="preview-additional-questions"></span></p>
+        <button id="edit-btn">Edit</button>
+        <button id="submit-btn">Submit</button>
+      </div>
+    </div>
+  </main>
+  <!-- footer -->
+  <footer>
+    <div class="footer-content">
+      <h3>Ensuring Good Health and Well-being</h3>
+      <p>We strive to ensure that everyone has access to indispensable information regarding good health and well being.
+      </p>
+      <ul class="footer-navigation">
+        <li><a href="home.html" id="Home">Home</a></li>
+        <li><a href="gallery.html" id="Gallery">Gallery</a></li>
+        <li><a href="shop.html" id="Shop">Shop</a></li>
+        <li><a href="profile.html" id="uprofile">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback">Feedback</a></li>
+        <li><a href="sitemap.html" id="sitemap">Sitemap</a></li>
+        <li><a href="student2_page_editor.html" id="editor" target="_blank">Editor</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/feedback.js"></script>
+</body>
+
+</html>
+</code>
+
+gallery.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Page</title>
+    <link rel="stylesheet" href="css/Gallery.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <a href="#"><img class="logo" src="images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link" class="active">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <div class="header-img">
+
+        <h1>Gallery</h1>
+        <hr>
+        <p>Healthy Habits Show case</p>
+    </div>
+
+    <div class="options">
+
+        <div class="colorBtn">
+            <p>Change Your Favourite Color 😉</p>
+            <button id="btn1" onclick="changeBackgroundColor(this)" value="#080820"></button>
+            <button id="btn2" onclick="changeBackgroundColor(this)" value="#2F4F4F"></button>
+            <button id="btn3" onclick="changeBackgroundColor(this)" value="#606660"></button>
+            <button id="btn4" onclick="changeBackgroundColor(this)" value="#c7c487"></button>
+        </div>
+
+
+
+
+        <div class="fontStyleBtn">
+            <p>You Can Change Font Style Here!!😎</p>
+            <button id="Serif" onclick="changeFontSerif()">Serif</button>
+            <button id="Sans-serif" onclick="changeFontSansSerif()">Sans</button>
+            <button id="Monospace" onclick="changeFontMonospace()">Monoec</button>
+        </div>
+
+        <div class="aboutme">
+            <a href="Page editor student 4.html" target="_blank">About Me</a>
+        </div>
+    </div>
+    <div class="bottons">
+        <img src="images/left-arrow.png" alt="left arrow" id="back">
+        <div class="photobar">
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-1.jpeg"
+                            alt="A colorful assortment of fresh fruits and vegetables on a wooden table" class="img1">
+                    </div>
+                    <div class="card-content">
+                        <h2>Healthy Eating</h2>
+                        <p>Incorporating a balanced diet rich in fruits, vegetables, and whole grains is essential for
+                            maintaining good health. Make nutritious choices to fuel your body and nourish your mind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-2.jpeg" alt="A women joging" class="img1"></div>
+                    <div class="card-content">
+                        <h2>Fitness</h2>
+                        <p>Regular physical activity is key to staying fit and healthy. Whether it's jogging, cycling,
+                            or hitting the gym, find activities you enjoy and make them part of your daily routine.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-3.jpeg" alt="A man do yoga infront of a rever"
+                            class="img1"></div>
+                    <div class="card-content">
+                        <h2>Mindfulness</h2>
+                        <p>Practicing mindfulness and meditation can help reduce stress, improve focus, and enhance
+                            overall well-being. Take time to quiet your mind, breathe deeply, and connect with the
+                            present moment.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-4.jpeg" alt="A ice mountain" class="img1"></div>
+                    <div class="card-content">
+                        <h2>Nature</h2>
+                        <p>Spending time in nature has numerous health benefits, from reducing anxiety to boosting mood
+                            and creativity. Take a hike, go for a swim, or simply relax in the great outdoors to
+                            recharge your spirit.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-5.jpeg" alt="Gang of children taking with each others"
+                            class="img1"></div>
+                    <div class="card-content">
+
+                        <h2>Social</h2>
+                        <p>Building and maintaining meaningful relationships with others is vital for emotional health
+                            and well-being. Stay connected with friends, family, and community to cultivate a sense of
+                            belonging and support.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-6.jpeg" alt="A women feeling relax in the bath tab"
+                            class="img1"></div>
+                    <div class="card-content">
+
+                        <h2>Self-Care</h2>
+                        <p>Prioritizing self-care activities such as getting enough sleep, practicing relaxation
+                            techniques, and indulging in hobbies you enjoy is essential for overall wellness. Remember
+                            to take time for yourself and recharge your batteries regularly.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-7.jpeg" alt="A man drinking water" class="img1"></div>
+                    <div class="card-content">
+
+                        <h2>Healthy Habits</h2>
+                        <p>Adopting healthy habits like staying hydrated, getting regular exercise, and managing stress
+                            can help prevent illness and promote longevity. Small, consistent actions add up to
+                            significant improvements in your health over time.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="images/right-arrow.png" alt="right arrow" id="next">
+
+    </div>
+
+    <div class="extended-view">
+        <button class="close-button"><i class="fa-regular fa-circle-xmark"></i></button>
+        <img src="" alt="Detailed view" class="extended-image">
+        <div class="extended-info">
+            <h2 class="image-title">Image Title</h2>
+            <p class="image-description">Detailed information about the image...</p>
+
+        </div>
+    </div>
+
+
+    <!--footer-->
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and
+                well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="Home">Home</a></li>
+                <li><a href="gallery.html" id="Gallery">Gallery</a></li>
+                <li><a href="shop.html" id="Shop">Shop</a></li>
+                <li><a href="profile.html" id="uprofile">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback">Feedback</a></li>
+                <li><a href="Sitemap.html" id="sitemap">Sitemap</a></li>
+                <li><a href="Page editor student 4.html" id="editor">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+
+
+    </footer>
+
+    <script src="JS/app.js"></script>
+    <script src="JS/navigation.js"></script>
+</body>
+
+</html>
+</code>
+
+home.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <title>home</title>
+
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <a href="home.html"><img class="logo" src="assets/images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link" class="active">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+    <!-- main part -->
+    <main>
+
+        <section class="home">
+            <img src="assets/images/home/mount2.png" id="mount2" alt="Mountains">
+            <img src="assets/images/home/mount1.png" id="mount1" alt="Mountain">
+            <img src="assets/images/home/bush2.png" id="bush2" alt="Bushes">
+            <h2 id="title">Ensuring Good Health and Well-being</h2>
+            <img src="assets/images/home/bush1.png" id="bush1" alt="Bushes">
+            <img src="assets/images/home/leaf2.png" id="leaf2" alt="Leaf">
+            <img src="assets/images/home/leaf1.png" id="leaf1" alt="Leaf">
+        </section>
+
+        <section class="about">
+            <h2>Our Mission</h2>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being. Through speading awareness of the crucial choices in our everyday lives that could lead to
+                desirable outcomes in terms of our health and well being, we hope to improve the lives of
+                everyone around us.</p>
+        </section>
+
+        <section class="categories">
+            <h2>Contents</h2>
+            <p>Welcome to our content page dedicated to promoting good health and well-being. Explore expert tips and
+                resources to help you lead a healthier, happier life.</p>
+
+            <div class="row">
+                <a href="student1_content.html" class="category-col">
+                    <div>
+                        <img src="assets/images/home/meditation.jpg" alt="Meditation">
+                        <div class="category-layer">
+                            <h3> Benefits of good health </h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="student2_content.html" class="category-col">
+                    <div>
+                        <img src="assets/images/home/vaccine.jpg" alt="Vaccine">
+                        <div class="category-layer">
+                            <h3> The Power of Prevention</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="student4_content.html" class="category-col">
+                    <div>
+                        <img src="assets/images/home/Nutrition.jpg" alt="Nutrition">
+                        <div class="category-layer">
+                            <h3> Nutrition and Healthy Eating Habits </h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="Student Content/studentContent.html" class="category-col">
+                    <div>
+                        <img src="assets/images/home/rocks.jpg" alt="rocks">
+                        <div class="category-layer">
+                            <h3> Ensuring Healthy Lives & Promoting Well-being</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="Home">Home</a></li>
+                <li><a href="gallery.html" id="Gallery">Gallery</a></li>
+                <li><a href="shop.html" id="Shop">Shop</a></li>
+                <li><a href="profile.html" id="uprofile">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback">Feedback</a></li>
+                <li><a href="Sitemap.html" id="sitemap">Sitemap</a></li>
+                <li><a href="student2_page_editor.html" id="editor" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/home.js"></script>
+</body>
+
+</html>
+</code>
+
+navigation.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Navigation Bar</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+        <a href="#"><img class="logo" src="assets/images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <!-- footer -->
+
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="#" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+    <script src="assets/js/navigation.js"></script>
+</body>
+
+</html>
+</code>
+
+navigation.js:
+<code>
+// change to shadow when navbar scroll
+const header = document.querySelector('header');
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+//change active link part(Select Current page in nav bar)
+// Get all navigation links
+const navLinks = document.querySelectorAll('.navigation li a');
+
+// Add click event listener to each link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Remove active class from all links
+        navLinks.forEach(link => link.classList.remove('active'));
+        // Add active class to the clicked link
+        link.classList.add('active');
+    });
+});
+</code>
+
+Page editor student 4.html:
+<code>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/student4_page_editor.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <title>Page Editor - Student 2</title>
+</head>
+
+<body>
+  <!-- header -->
+  <header>
+    <a href="#"><img class="logo" src="images/logo.webp" alt="logo"></a>
+    <nav>
+      <ul class="navigation">
+        <li><a href="home.html" id="home-link">Home</a></li>
+        <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+        <li><a href="shop.html" id="shop-link">Shop</a></li>
+        <li><a href="profile.html" id="profile-link">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+        <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+      </ul>
+    </nav>
+    <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+  </header>
+
+  <main>
+
+    <div class="container">
+      <div class="page-editor-header">
+        <h1>Page Editor</h1>
+        <div class="profile">
+          <img src="images/Chamikara_Dimuth.jpg" alt="Profile Picture">
+        </div>
+        <p>Name: Chamikara Kodithuwakku</p>
+        <p>Student ID: 20231844</p>
+        <p>UoW ID: w2051975</p>
+        <p>Role: Student 4</p>
+        <p>The following pages were edited by me!</p>
+      </div>
+      <div class="content">
+        <div class="section">
+          <h2><i class="fas fa-home"></i> Gallery Page</h2>
+          <ul>
+            <li>I create a Gallery page for this web site</li>
+            <li>I use the hover method to display a description when the user hovers over the picture</li>
+            <li>"And I've created a method to pop up a photo when it is clicked."</li>
+
+          </ul>
+          <a href="Gallery.html">Link to Gallery</a>
+        </div>
+        <div class="section">
+          <h2><i class="fas fa-comments"></i> Site Map</h2>
+          <ul>
+            <li>Create a side map to navigate pages</li>
+            <li>Design the site Map</li>
+            <li>Create site map usin SVG</li>
+
+            <a href="Sitemap.html">Site Map</a>
+        </div>
+        <div class="section">
+          <h2><i class="fas fa-book"></i> Content Page - Nutrition and Healthy Eating Habits</h2>
+          <ul>
+            <li>Created a main topic section with a heading, description, and navigation links to different parts of the
+              content</li>
+            <li>Implemented content sections with responsive layout, displaying an image and corresponding text content
+            </li>
+            <li>Added hover effects on images with smooth scaling transition</li>
+            <li>Included ordered and unordered lists within the content sections, styled with custom bullet points</li>
+            <li>Implemented a "Back to Top" button that appears on scroll, allowing easy navigation to the top of the
+              page</li>
+            <li>Applied consistent styling and theming throughout the content page, aligning with the overall website
+              design</li>
+          </ul>
+          <a href="student4_content.html">Link to Content Page</a>
+        </div>
+        <div class="section">
+          <h2><i class="fas fa-globe"></i> Page Editor</h2>
+          <ul>
+            <li>Created a header section with the student's profile picture, name, student ID, and role</li>
+            <li>Implemented content sections for each page or task assigned to the student, including headings, lists,
+              and links to the corresponding pages</li>
+            <li>Summarize the tasks in which Student 2 was involved</li>
+          </ul>
+          <a href="Page editor student 4.html">Link to Editor</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- footer -->
+
+  <footer>
+    <div class="footer-content">
+      <h3>Ensuring Good Health and Well-being</h3>
+      <p>We strive to ensure that everyone has access to indispensable information regarding good health and well being.
+      </p>
+      <ul class="footer-navigation">
+        <li><a href="home.html" id="footer-home-link">Home</a></li>
+        <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+        <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+        <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+        <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+        <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+        <li><a href="#" id="editor-link" target="_blank">Editor</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+    </div>
+  </footer>
+  <script src="js/navigation.js"></script>
+</body>
+
+</html>
+</code>
+
+pageEditor.css:
+<code>
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    color: white;
+}
+
+body {
+    background-color: #222831;
+    text-align: center;
+}
+
+p,
+ul {
+
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 20px;
+
+}
+
+div {
+    height: auto;
+    width: auto;
+    min-width: 700px;
+    border: 2px solid white;
+    background-color: #31363F;
+
+
+}
+
+h2::before {
+    content: "✮ ";
+}
+
+h2::after {
+    content: " ✮";
+}
+
+.detailsContainer {
+    width: auto;
+    height: auto;
+    border-left: none;
+    border-right: none;
+}
+
+div div {
+    background-color: black;
+    margin-top: 20px;
+    border-left: none;
+    border-right: none;
+
+}
+
+div p,
+ul {
+    color: white;
+    font-weight: 700;
+    list-style: square;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border-style: none;
+    margin: 0px 10px;
+    padding: 0.4em;
+    font-size: 2rem;
+    min-width: 70px;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    list-style: "✮ ";
+    text-align: left;
+}
+
+li {
+    margin: 20px 10px;
+}
+</code>
+
+pageEditor.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor</title>
+    <link rel="stylesheet" href="pageEditor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h1>Page Editor</h1>
+    <main id="container">
+
+        <div id="generalDetails">
+            <h2>General Details</h2>
+            <div class="detailsContainer">
+                <p>Name: Rehab Naffiran</p>
+            </div>
+            <div class="detailsContainer">
+                <p>Role: Student 1</p>
+            </div>
+            <div class="detailsContainer">
+                <p>Projects: <button><a href="shop.html">Shop</a></button><button><a href="splash.html">Splash
+                            Screen</a></button><button><a href="student1_content.html">Content
+                            Page</a></button><button><a href="checkout.html">Checkout Page</a></button></p>
+            </div>
+        </div>
+
+        <div id="shop">
+            <h2>Shop</h2>
+            <div>
+                <ul>
+                    <li>Created a shopping page using html, css and javascript</li>
+                    <li>CSS Grid was used to layout the catalog of items</li>
+                    <li>Local storage was used to save the cart information</li>
+                </ul>
+                <button><a href="shop.html">Link to Shop</a></button>
+            </div>
+        </div>
+
+
+
+        <div id="splashScreen">
+            <h2>Splash Screen</h2>
+            <div>
+                <ul>
+                    <li>Created a splash screen using html, css and javascript</li>
+                    <li>Javascript was used to create the delay of 4 seconds</li>
+                    <li>An animation was used to show the user that the home page is loading</li>
+                </ul>
+                <button><a href="splash.html">Link to Splash Screen</a></button>
+            </div>
+        </div>
+
+
+
+        <div id="contentPage">
+            <h2>Content Page</h2>
+            <div>
+                <ul>
+                    <li>Created a content page using html and css</li>
+                    <li>CSS Grid was used to layout the content</li>
+                    <li>Links were included at the top of the page for content navigation </li>
+                </ul>
+                <button><a href="student1_content.html">Link to Content Page</a></button>
+            </div>
+
+
+        </div>
+
+        <div id="checkoutPage">
+            <h2>Checkout Page</h2>
+            <div>
+                <ul>
+                    <li>Created a checkout page using html, css and javascript</li>
+                    <li>CSS Grid was used to layout the forms</li>
+                    <li>UI pseudo-classes were used for client-side validation</li>
+                </ul>
+                <button><a href="checkout.html">Link to Checkout Page</a></button>
+            </div>
+
+        </div>
+
+    </main>
+</body>
+
+</html>
+</code>
+
+profile.css:
+<code>
+body {
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#profile {
+    max-width: 600px;
+    margin: 120px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 24px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#progress-info, #progress-container {
+    text-align: center;
+}
+
+#progress-container {
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+#output {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+#prompts button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#prompts button:hover {
+    background-color: #45a049;
+}
+
+</code>
+
+profile.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../NavBar/style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <!--NavBar-->
+    <nav-header>
+        <a href="../PageEditor/PageEditor.html"><img class="nav-logo" src="../src/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="nav-navigation" style="margin-left: 500px">
+                <li><a href="home.html" class="nav-active">Home</a></li>
+                <li><a href="profile.html" id="nav-profile-link" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pageEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </nav>
+        <button class="nav-team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </nav-header>
+
+    <!--Profile-->
+    <div id="profile">
+        <div class="container">
+            <h1>Build User Profile</h1>
+            <button id="startBtn">Start</button>
+        </div>
+        <div class="container" id="progress-info" style="display: none;">
+            Profile Completed <span id="completion-percentage">0%</span>
+        </div>
+        <div id="progress-container" style="display: none;">
+            <div id="progress-bar"></div>
+        </div>
+        <div class="container" id="prompts" style="display: none;"></div>
+        <div class="container" id="output" style="display: none;"></div>
+    </div>
+
+    <!--Footer-->
+    <nav-footer>
+        <div class="nav-footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="nav-footer-navigation">
+                <li><a href="home.html" class="nav-active">Home</a></li>
+                <li><a href="profile.html" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </nav-footer>
+
+    <script src="../NavBar/navigation.js"></script>
+    <script src="profile.js"></script>
+</body>
+
+</html>
+</code>
+
+profile.js:
+<code>
+const prompts = [
+    { step: 1, title: 'Personal Details', questions: ['Name', 'Surname', 'Age', 'Gender', 'Do you agree with the terms and conditions?'] },
+    { step: 2, title: 'Contact Information', questions: ['Email', 'Phone Number', 'Address', 'City', 'Country'] },
+    { step: 3, title: 'Professional Information', questions: ['Area of Study:', 'Highest degree:', 'University:', 'Completion Year:', 'Country:'] },
+    { step: 4, title: 'Availability', questions: ['Availability for volunteering:', 'Surname:', 'Tel. :', 'Email'] },
+];
+let currentStep = 1;
+let currentQuestionIndex = 0;
+let profileCompletion = 0;
+
+const startBtn = document.getElementById('startBtn');
+const progressInfo = document.getElementById('progress-info');
+const progressBarContainer = document.getElementById('progress-container');
+const promptsContainer = document.getElementById('prompts');
+const outputContainer = document.getElementById('output');
+
+const renderPrompt = () => {
+    const currentPrompt = prompts.find(prompt => prompt.step === currentStep);
+    const question = currentPrompt.questions[currentQuestionIndex];
+    const promptElement = document.createElement('div');
+    promptElement.innerHTML = `
+        <h2>Step ${currentStep}: ${currentPrompt.title} | Question ${currentQuestionIndex + 1}/${currentPrompt.questions.length}</h2>
+        <p>${question}</p>
+        <input type="text" id="answer" onchange="validateInput('${question}')">
+        <button id="nextBtn" onclick="submitAnswer()" disabled>Next</button>
+        <button onclick="backToPreviousStep()">Back</button>
+        <button onclick="skipQuestion()" ${question === 'Name' || question === 'Surname' ? 'disabled' : ''}>Skip</button>
+    `;
+    promptsContainer.innerHTML = '';
+    promptsContainer.appendChild(promptElement);
+    if (currentStep !== 1 || currentQuestionIndex !== 0) {
+        outputContainer.style.display = 'block';
+    }
+};
+
+const validateInput = (question) => {
+    const answer = document.getElementById('answer').value.trim();
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.disabled = answer === '' && !(question === 'Name' || question === 'Surname');
+};
+
+const submitAnswer = () => {
+    const answer = document.getElementById('answer').value.trim();
+    if (answer === '') {
+        alert('Please Enter Valid input or skip this question.');
+        return;
+    }
+    const outputElement = document.getElementById('output');
+
+    const currentPrompt = prompts.find(prompt => prompt.step === currentStep);
+    const question = currentPrompt.questions[currentQuestionIndex];
+    let userProfile = '';
+
+    switch (question) {
+        case 'Name':
+        case 'Surname':
+            if (/\d/.test(answer)) {
+                alert('Names cannot contain numbers. Please enter a valid name.');
+                return;
+            }
+            break;
+        case 'Age':
+            if (isNaN(answer) || answer < 1 || answer > 110) {
+                alert('Impossible age!! Please enter age between 1 and 110.');
+                return;
+            }
+            break;
+        case 'Email':
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(answer)) {
+                alert('Please enter valid email with correct format!');
+                return;
+            }
+            break;
+        case 'Phone Number':
+        case 'Tel.':
+            if (isNaN(answer)) {
+                alert('Phone number should only contain numbers.');
+                return;
+            }
+            break;
+        case 'Completion Year':
+            if (isNaN(Number(answer)) || !Number.isInteger(Number(answer)) || Number(answer) < 1900 || Number(answer) > 2050) {
+                alert('Please enter a valid year between 1900 and 2050.');
+                return;
+            }
+            break;
+        case 'Gender':
+            if (!['male', 'female', 'other'].includes(answer.toLowerCase())) {
+                alert('Please enter valid gender - (male, female, or other).');
+                return;
+            }
+            break;
+        case 'Do you agree with the terms and conditions?':
+            if (!['yes', 'no'].includes(answer.toLowerCase())) {
+                alert('Not Valid Input! Please enter "yes" or "no".');
+                return;
+            }
+            break;
+        case 'City':
+        case 'Country':
+        case 'Area of Study:':
+        case 'Highest degree:':
+        case 'University:':
+        case 'Availability for volunteering:':
+        case 'Surname:':
+            if (/\d/.test(answer)) {
+                alert('This field should only contain letters.');
+                return;
+            }
+            break;
+    }
+
+    userProfile = `${question}: ${answer}`;
+    outputElement.innerHTML += `<p>${userProfile}</p>`;
+
+    profileCompletion += 100 / (prompts.length * currentPrompt.questions.length);
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex === currentPrompt.questions.length) {
+        currentStep++;
+        currentQuestionIndex = 0;
+        outputElement.innerHTML += '<hr style="border-top: 2px solid green;">';
+    }
+
+    if (profileCompletion >= 100) {
+        profileCompletion = 100;
+        updateProgress();
+        promptsContainer.innerHTML = '<p>Profile completed!</p>';
+    } else {
+        renderPrompt();
+        updateProgress();
+    }
+};
+
+const backToPreviousStep = () => {
+    if (currentQuestionIndex === 0) {
+        currentStep--;
+        const prevPrompt = prompts.find(prompt => prompt.step === currentStep);
+        currentQuestionIndex = prevPrompt.questions.length - 1;
+    } else {
+        currentQuestionIndex--;
+    }
+    renderPrompt();
+};
+
+
+const skipQuestion = () => {
+    const currentPrompt = prompts.find(prompt => prompt.step === currentStep);
+    const currentQuestion = currentPrompt.questions[currentQuestionIndex];
+
+    if (currentQuestion === 'Name' || currentQuestion === 'Surname') {
+        alert('Please enter your name and surname before skipping.');
+        return;
+    }
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex === currentPrompt.questions.length) {
+        currentStep++;
+        currentQuestionIndex = 0;
+    }
+    updateProgress();
+
+    if (profileCompletion >= 100) {
+        profileCompletion = 100;
+        promptsContainer.innerHTML = '<p>Profile completed!</p>';
+    } else {
+        renderPrompt();
+    }
+};
+
+
+const updateProgress = () => {
+    const progressBar = document.getElementById('progress-bar');
+    const completionPercentage = document.getElementById('completion-percentage');
+
+    progressBar.style.width = `${profileCompletion}%`;
+    completionPercentage.textContent = `${Math.round(profileCompletion)}%`;
+};
+
+startBtn.addEventListener('click', () => {
+    startBtn.style.display = 'none';
+    progressInfo.style.display = 'block';
+    progressBarContainer.style.display = 'block';
+    promptsContainer.style.display = 'block';
+    renderPrompt();
+    updateProgress();
+});
+
+</code>
+
+shop.css:
+<code>
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+    color: #112D4E;
+    padding: 0.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+
+    margin-top: 12rem;
+    margin-bottom: 4rem;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+body {
+
+    background-color: #71C9CE;
+    color: #112D4E;
+
+}
+
+main div {
+    width: 400px;
+    height: 500px;
+    background-color: #A6E3E9;
+    border: 2px solid white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-bottom: 40px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-left: 2rem;
+
+}
+
+.Cart {
+
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 700px;
+    border-radius: 10px;
+    position: sticky;
+    top: 10px;
+
+
+
+}
+
+main img {
+
+    width: 400px;
+    height: 250px;
+    margin: 0;
+
+}
+
+
+main button {
+    font-size: 1.5rem;
+    padding: 1em;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 20px;
+    color: black;
+
+
+}
+
+main button:hover {
+    background-color: #112D4E;
+    border: 2px solid white;
+    color: white;
+}
+
+main button:active {
+    box-shadow: 4px 4px 5px white;
+
+}
+
+.addToCart-btn {
+    display: block;
+    text-align: center;
+    margin: 15px auto;
+}
+
+.IncrementDecrement-btn {
+    font-size: 1.5rem;
+    padding: 0.5em;
+    width: 2em;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+main ul {
+
+    list-style: none;
+
+    height: 600px;
+}
+
+main li {
+    font-size: 2rem;
+    margin: 15px;
+    color: #112D4E;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin-left: 2px;
+
+}
+
+hr {
+    border: 2px dotted white;
+}
+
+#CartItems {
+    width: auto;
+    height: 400px;
+    margin: 15px;
+    overflow-y: scroll;
+    border-style: none;
+    box-shadow: 2px 2px 2px 2px white;
+}
+
+#clearCart-btn {
+    background-color: #112D4E;
+    border: 2px solid white;
+    color: white;
+
+}
+
+#checkout-btn:hover {
+    background-color: #E3FDFD;
+    color: #112D4E;
+}
+
+#checkout-Message {
+    font-size: 1.5rem;
+    color: red;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.price {
+    margin-top: 20px;
+}
+</code>
+
+shop.html:
+<code>
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <a href="#"><img class="logo" src="Images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link" class="active">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <h1>Shop Now & Spread Awareness!</h1>
+
+    <main class="container">
+        <div class="p1">
+            <img alt="Benefits of drinking water poster" src="Images/BenefitsOfWater.webp">
+            <!-- Credit - https://thumbs.dreamstime.com/b/benefits-drinking-water-hydration-norm-human-body-medical-poster-bottle-glass-healthy-drink-benefits-209951172.jpg -->
+            <h2 id="p1-Title">Drink water poster</h2>
+            <p class="price"> Rs <span id="p1-Price">200</span></p>
+            <button id="Decrement-btnP1" class="IncrementDecrement-btn">-</button>
+            <span id="p1-Quantity">0</span>
+            <button id="Increment-btnP1" class="IncrementDecrement-btn">+</button>
+            <button id="addToCart-btnP1" class="addToCart-btn">Add to Cart</button>
+        </div>
+        <div class="p2">
+            <img alt="Eat healthy food poster" src="Images/EatHealthy.png">
+            <!-- Credit - https://edit.org/ -->
+            <h2 id="p2-Title">Eat healthy food poster</h2>
+            <p class="price"> Rs <span id="p2-Price">250</span></p>
+            <button id="Decrement-btnP2" class="IncrementDecrement-btn">-</button>
+            <span id="p2-Quantity">0</span>
+            <button id="Increment-btnP2" class="IncrementDecrement-btn">+</button>
+            <button id="addToCart-btnP2" class="addToCart-btn">Add to Cart</button>
+        </div>
+        <div class="p3">
+            <img src="Images/TakeVaccines.png" alt="Take Vaccines Poster">
+            <h2 id="p3-Title">Take vaccines poster</h2>
+            <p class="price"> Rs <span id="p3-Price">100</span></p>
+            <button id="Decrement-btnP3" class="IncrementDecrement-btn">-</button>
+            <span id="p3-Quantity">0</span>
+            <button id="Increment-btnP3" class="IncrementDecrement-btn">+</button>
+            <button id="addToCart-btnP3" class="addToCart-btn">Add to Cart</button>
+
+        </div>
+        <div class="p4">
+            <img src="Images/ExercisePoster.png" alt="Exercise Poster">
+            <h2 id="p4-Title">Exercise poster</h2>
+            <p class="price"> Rs <span id="p4-Price">150</span></p>
+            <button id="Decrement-btnP4" class="IncrementDecrement-btn">-</button>
+            <span id="p4-Quantity">0</span>
+            <button id="Increment-btnP4" class="IncrementDecrement-btn">+</button>
+            <button id="addToCart-btnP4" class="addToCart-btn">Add to Cart</button>
+
+        </div>
+        <div class="p5">
+            <img src="Images/MeditationPoster.png" alt="Meditation poster">
+            <h2 id="p5-Title">Meditation poster</h2>
+            <p class="price"> Rs <span id="p5-Price">300</span></p>
+            <button id="Decrement-btnP5" class="IncrementDecrement-btn">-</button>
+            <span id="p5-Quantity">0</span>
+            <button id="Increment-btnP5" class="IncrementDecrement-btn">+</button>
+            <button id="addToCart-btnP5" class="addToCart-btn">Add to Cart</button>
+
+        </div>
+        <div class="p6">
+            <img src="Images/StopPollution.png" alt="Stop pollution poster">
+            <h2 id="p6-Title">Stop pollution poster</h2>
+            <p class="price"> Rs <span id="p6-Price">350</span></p>
+            <button id="Decrement-btnP6" class="IncrementDecrement-btn">-</button>
+            <span id="p6-Quantity">0</span>
+            <button id="Increment-btnP6" class="IncrementDecrement-btn">+</button>
+            <button id="addToCart-btnP6" class="addToCart-btn">Add to Cart</button>
+
+        </div>
+        <div class="Cart">
+
+            <h2>Cart</h2>
+            <div id="CartItems">
+                <ul id="cart-Items"></ul>
+            </div>
+            <h3> Total: Rs <span id="cart-Total">0</span></h3>
+            <button id="checkout-btn">Checkout</button>
+            <button id="clearCart-btn">Clear Cart</button>
+            <p id="checkout-Message"></p>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="pageEditor.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+    <script src="shop.js"></script>
+    <script src="navigation.js"></script>
+
+</body>
+
+</html>
+</code>
+
+shop.js:
+<code>
+const p1Quantity = document.getElementById("p1-Quantity")
+const p2Quantity = document.getElementById("p2-Quantity")
+const p3Quantity = document.getElementById("p3-Quantity")
+const p4Quantity = document.getElementById("p4-Quantity")
+const p5Quantity = document.getElementById("p5-Quantity")
+const p6Quantity = document.getElementById("p6-Quantity")
+
+const IncrementbtnP1 = document.getElementById("Increment-btnP1").addEventListener("click", function () {
+    incrementQuantity(p1Quantity)
+})
+const DecrementbtnP1 = document.getElementById("Decrement-btnP1").addEventListener("click", function () {
+    decrementQuantity(p1Quantity)
+})
+const IncrementbtnP2 = document.getElementById("Increment-btnP2").addEventListener("click", function () {
+    incrementQuantity(p2Quantity)
+})
+const DecrementbtnP2 = document.getElementById("Decrement-btnP2").addEventListener("click", function () {
+    decrementQuantity(p2Quantity)
+})
+const IncrementbtnP3 = document.getElementById("Increment-btnP3").addEventListener("click", function () {
+    incrementQuantity(p3Quantity)
+})
+const DecrementbtnP3 = document.getElementById("Decrement-btnP3").addEventListener("click", function () {
+    decrementQuantity(p3Quantity)
+})
+const IncrementbtnP4 = document.getElementById("Increment-btnP4").addEventListener("click", function () {
+    incrementQuantity(p4Quantity)
+})
+const DecrementbtnP4 = document.getElementById("Decrement-btnP4").addEventListener("click", function () {
+    decrementQuantity(p4Quantity)
+})
+const IncrementbtnP5 = document.getElementById("Increment-btnP5").addEventListener("click", function () {
+    incrementQuantity(p5Quantity)
+})
+const DecrementbtnP5 = document.getElementById("Decrement-btnP5").addEventListener("click", function () {
+    decrementQuantity(p5Quantity)
+})
+const IncrementbtnP6 = document.getElementById("Increment-btnP6").addEventListener("click", function () {
+    incrementQuantity(p6Quantity)
+})
+const DecrementbtnP6 = document.getElementById("Decrement-btnP6").addEventListener("click", function () {
+    decrementQuantity(p6Quantity)
+})
+const addToCartbtnP1 = document.getElementById("addToCart-btnP1").addEventListener("click", function () {
+    addToCart(p1Title, p1Price, p1Quantity)
+})
+const addToCartbtnP2 = document.getElementById("addToCart-btnP2").addEventListener("click", function () {
+    addToCart(p2Title, p2Price, p2Quantity)
+})
+const addToCartbtnP3 = document.getElementById("addToCart-btnP3").addEventListener("click", function () {
+    addToCart(p3Title, p3Price, p3Quantity)
+})
+const addToCartbtnP4 = document.getElementById("addToCart-btnP4").addEventListener("click", function () {
+    addToCart(p4Title, p4Price, p4Quantity)
+})
+const addToCartbtnP5 = document.getElementById("addToCart-btnP5").addEventListener("click", function () {
+    addToCart(p5Title, p5Price, p5Quantity)
+})
+const addToCartbtnP6 = document.getElementById("addToCart-btnP6").addEventListener("click", function () {
+    addToCart(p6Title, p6Price, p6Quantity)
+})
+
+const p1Title = document.getElementById("p1-Title")
+const p1Price = document.getElementById("p1-Price")
+
+const cartItems = document.getElementById("cart-Items")
+const cartTotal = document.getElementById("cart-Total")
+
+const p2Title = document.getElementById("p2-Title")
+const p2Price = document.getElementById("p2-Price")
+
+const p3Title = document.getElementById("p3-Title")
+const p3Price = document.getElementById("p3-Price")
+
+const p4Title = document.getElementById("p4-Title")
+const p4Price = document.getElementById("p4-Price")
+
+const p5Title = document.getElementById("p5-Title")
+const p5Price = document.getElementById("p5-Price")
+
+const p6Title = document.getElementById("p6-Title")
+const p6Price = document.getElementById("p6-Price")
+
+const clearCartBtn = document.getElementById("clearCart-btn").addEventListener("click", function () {
+    clearCart()
+})
+const checkoutBtn = document.getElementById("checkout-btn").addEventListener("click", function () {
+    checkout()
+})
+const checkoutMessage = document.getElementById("checkout-Message")
+
+function incrementQuantity(productQuantity) {
+    productQuantity.textContent = Number(productQuantity.textContent) + 1
+
+}
+
+function decrementQuantity(productQuantity) {
+    if (Number(productQuantity.textContent) > 0) {
+        productQuantity.textContent = Number(productQuantity.textContent) - 1
+    }
+}
+
+function addToCart(productTitle, productPrice, productQuantity) {
+    if (Number(productQuantity.textContent) > 0) {
+        cartItems.innerHTML +=
+            `<li> 
+         ${productTitle.textContent} x ${productQuantity.textContent} <br>
+        Rs ${Number(productPrice.textContent) * Number(productQuantity.textContent)}     
+        </li> <hr>    
+    `
+        let totalProductPrice = Number(productPrice.textContent) * Number(productQuantity.textContent)
+        cartTotal.textContent = Number(cartTotal.textContent) + totalProductPrice
+    }
+
+}
+
+function clearCart() {
+    cartTotal.textContent = 0
+    cartItems.innerHTML = ""
+}
+
+function checkout() {
+    if (Number(cartTotal.textContent) == 0) {
+        checkoutMessage.textContent = "Add atleast one poster to the cart to checkout"
+    }
+    else {
+        window.location.href = "checkout.html"
+        let orderDetails = cartItems.innerHTML
+        localStorage.setItem("orderDetails", orderDetails)
+        localStorage.setItem("cartTotal", cartTotal.textContent)
+
+    }
+}
+</code>
+
+Sitemap.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap</title>
+    <link rel="stylesheet" href="css/sitemap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <a href="#"><img class="logo" src="images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link" class="active">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <!-- footer -->
+
+    <div class="sitemap-container">
+        <h1>Site-Map</h1>
+        <svg viewBox="0 0 800 600">
+            <!-- Nodes and connections -->
+            <!-- Home Page -->
+            <rect class="node" x="300" y="200" width="200" height="100" rx="20"></rect>
+            <text class="word" x="400" y="250" text-anchor="middle" dy=".3em">
+                <a href="home.html">Home Page</a>
+            </text>
+
+            <!-- Gallery -->
+            <rect class="node" x="100" y="100" width="200" height="100" rx="20"></rect>
+            <text class="word" x="200" y="150" text-anchor="middle" dy=".3em">
+                <a href="gallery.html">Gallery</a>
+            </text>
+
+            <!-- Shop -->
+            <rect class="node" x="500" y="100" width="200" height="100" rx="20"></rect>
+            <text class="word" x="600" y="150" text-anchor="middle" dy=".3em">
+                <a href="shop.html">Shop</a>
+            </text>
+
+            <!-- User Profile -->
+            <rect class="node" x="100" y="300" width="200" height="100" rx="20"></rect>
+            <text class="word" x="200" y="350" text-anchor="middle" dy=".3em">
+                <a href="profile.html">User Profile</a>
+            </text>
+
+            <!-- Feedback -->
+            <rect class="node" x="500" y="300" width="200" height="100" rx="20"></rect>
+            <text class="word" x="600" y="350" text-anchor="middle" dy=".3em">
+                <a href="feedback.html">Feedback</a>
+            </text>
+
+            <!-- Team -->
+            <rect class="node" x="300" y="450" width="200" height="100" rx="20"></rect>
+            <text class="word" x="400" y="500" text-anchor="middle" dy=".3em">
+                <a href="/Student Details/studentDetails.html">Team</a>
+            </text>
+
+            <!-- Sitemap -->
+            <rect class="node" x="300" y="0" width="200" height="100" rx="10"></rect>
+            <text class="word" x="400" y="50" text-anchor="middle" dy=".3em">
+                <a href="sitemap.html">Sitemap</a>
+            </text>
+
+            <!-- Connections -->
+            <line class="line" x1="300" y1="215" x2="200" y2="150" stroke-width="2"></line>
+            <line class="line" x1="500" y1="215" x2="600" y2="150" stroke-width="2"></line>
+            <line class="line" x1="317" y1="300" x2="200" y2="350" stroke-width="2"></line>
+            <line class="line" x1="483" y1="300" x2="600" y2="350" stroke-width="2"></line>
+            <line class="line" x1="400" y1="300" x2="400" y2="450" stroke-width="2"></line>
+            <line class="line" x1="400" y1="200" x2="400" y2="100" stroke-width="2"></line>
+        </svg>
+    </div>
+
+    <!-- footer -->
+
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="Page editor student 4.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+    <script src="js/navigation.js"></script>
+    <script src="js/sitemap.js"></script>
+</body>
+
+</html>
+</code>
+
+splash.css:
+<code>
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+
+    color: #112D4E;
+
+    padding: 0.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 350;
+    font-style: normal;
+}
+
+h2 {
+    margin-left: 30px;
+    font-size: 3.5rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+
+    background-color: white;
+    color: #112D4E;
+    font-family: "Roboto", sans-serif;
+    font-weight: 350;
+    font-style: normal;
+}
+
+p,
+ul {
+    font-size: 3rem;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+
+}
+
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+</code>
+
+splash.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="splash.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h1>Ensuring Good Health And Well Being</h1>
+
+        <main>
+            <p>
+                We strive to ensure that everyone has access to indispensable information regarding good health and
+                well
+                being. Through speading awareness of the crucial choices in our everyday lives that could lead to
+                desirable outcomes in terms of our health and well being, we hope to improve the lives of everyone
+                around us.
+            </p>
+
+
+            <h2>Group members</h2>
+
+            <ul>
+                <li>Rehab Naffiran</li>
+                <li>Chamikara Kodithuwakku</li>
+                <li>Matheesha Sirisooriya</li>
+                <li>Gevin Nanayakkara </li>
+                <li><img src="Images/animation.gif" alt="Home page is Loading">
+                </li>
+            </ul>
+        </main>
+    </div>
+
+    <script src="splash.js"></script>
+</body>
+
+</html>
+</code>
+
+splash.js:
+<code>
+setTimeout(function () {
+    window.location.href = "home.html"
+}, 4000)
+</code>
+
+student1_content.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensuring Good Health</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contentPage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header>
+        <a href="#"><img class="logo" src="Images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+    <div>
+        <h1>Ensuring Good Health And Well Being</h1>
+        <h2>Benefits of good health</h2>
+        <p>Good health should be considered as an essential attribute of a good life as it contributes to all
+            aspects of our life. A person who has good health is a productive individual who is able to provide value to
+            the
+            world therefore emphasis should be placed on spreading awareness about the benefits of good choices
+            that lead to good outcomes in terms of our health. Below are examples of some of the good choices that could
+            potentially enhance the well being of anyone.
+        </p>
+        <a class="contentNav" href="#Vaccination">Vaccination</a>
+        <a class="contentNav" href="#Exercise">Exercise</a>
+        <a class="contentNav" href="#Meditation">Meditation</a>
+
+    </div>
+    <main id="container">
+        <div id="Vaccination">
+            <h2>Vaccination</h2>
+            <p>
+                Vaccination can not only protect you but also the people around you. By reducing the amount of people
+                being
+                exposed to harmful diseases, we are able to alleviate the serious cause of poor health which is in the
+                form of dangerous diseases. Vaccines can also be cost effective since the treatment of harmful diseases
+                can result in hefty medical bills to be payed hence being proactive and getting vaccinated is more
+                accessible and cost effective than treatment.
+            </p>
+            <img src="Images/Vaccines.jpeg" alt="vaccine">
+        </div>
+        <div id="Exercise">
+            <h2>Exercise</h2>
+            <p>
+                Exercise is one of the best contributors to good health. The
+                health benefits of exercise include the reduction of risk to chronic diseases that are the major cause
+                of poor health, the alleviation of pain as it acts as a pain reliever and the improvement of bone
+                density.
+            </p>
+            <img src="Images/Exercise.jpeg" alt="exercise">
+        </div>
+        <div id="Meditation">
+            <h2>Meditation</h2>
+            <p>
+                Meditation has been popular for reducing stress and anxiety but scientific research has revealed that it
+                has a plethora of benefits and these benefits are not just limited to reducing stress and anxiety.
+                Meditation can help to alleviate memory loss as we age, help us improve our sleep and prevent addiction
+                which is affecting the lives of more than millions of people hence it is a major contributor of good
+                health.
+            </p>
+            <img src="Images/meditation.jpg" alt="meditation">
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="pageEditor.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+
+</html>
+</code>
+
+student2_content.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Work+Sans&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/student2_content.css">
+  <title>Content - Student 2</title>
+</head>
+
+<body>
+
+  <header>
+    <a href="home.html"><img class="logo" src="assets/images/logo.webp" alt="logo"></a>
+    <nav>
+      <ul class="navigation">
+        <li><a href="home.html" id="home-link" class="active">Home</a></li>
+        <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+        <li><a href="shop.html" id="shop-link">Shop</a></li>
+        <li><a href="profile.html" id="profile-link">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+        <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+      </ul>
+    </nav>
+    <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+  </header>
+
+  <main>
+    <div class="maintopic">
+      <h1>The Power of Prevention: Vaccines and Healthy Choices</h1>
+      <p>We all want to stay healthy and live long lives without getting sick. It's like the saying goes, 'prevention is
+        better than cure.' That means it's better to stop problems before they start. Vaccines and healthy choices are
+        two important ways we can do this. Vaccines help our bodies fight off diseases, and making healthy choices like
+        eating well and exercising keeps us strong and less likely to get sick. By using both vaccines and healthy
+        habits, we're taking big steps to stay well and feel our best.</p>
+      <div class="section-links">
+        <h3>Navigate to:</h3>
+        <ul>
+          <li><a href="#about-heading">The Importance of Vaccines</a></li>
+          <li><a href="#lifestyle-heading">Healthy Lifestyle Choices</a></li>
+          <li><a href="#did-you-know-heading">Did You Know?</a></li>
+          <li><a href="#making-choice-heading">Making the Choice for Health</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <section class="about">
+        <div class="about-image">
+          <img src="assets/images/contents/student2/content1.jpg" alt="content 1">
+        </div>
+        <div class="about-content">
+          <h2 id="about-heading">The Importance of Vaccines</h2>
+          <p>Vaccines are one of the greatest public health achievements in human history. By introducing a weakened or
+            inactive form of a disease into the body, vaccines teach our immune systems to recognize and fight off those
+            pathogens. This helps prevent potentially deadly diseases like:</p>
+          <div class="important-vacci-list">
+            <ul>
+              <li>Measles, mumps, rubella</li>
+              <li>Polio</li>
+              <li>Influenza (flu)</li>
+              <li>Human papillomavirus (HPV)</li>
+              <li>COVID-19</li>
+            </ul>
+          </div>
+          <p>Vaccines don't just protect vaccinated individuals - they also provide community protection by reducing the
+            spread of diseases through herd immunity. This safeguards vulnerable groups who cannot get vaccinated.</p>
+        </div>
+      </section>
+
+      <section class="lifestyle">
+        <div class="lifestyle-content">
+          <h2 id="lifestyle-heading">Healthy Lifestyle Choices</h2>
+          <p>While vaccines target specific diseases, healthy habits build up our overall wellbeing and resilience.
+            Simple choices like eating a balanced diet, exercising regularly, getting enough sleep, and not smoking can
+            drastically reduce our risks of developing chronic conditions such as:</p>
+          <div class="lifestyle-list">
+            <ul>
+              <li>Heart disease</li>
+              <li>Stroke</li>
+              <li>Diabetes</li>
+              <li>Cancer</li>
+              <li>Obesity</li>
+            </ul>
+          </div>
+          <p>Vaccines don't just protect vaccinated individuals - they also provide community protection by reducing the
+            spread of diseases through herd immunity. This safeguards vulnerable groups who cannot get vaccinated.</p>
+        </div>
+        <div class="lifestyle-image">
+          <img src="assets/images/contents/student2/content2.jpg" alt="content 2">
+        </div>
+      </section>
+
+      <section class="did-you-know">
+        <h2 id="did-you-know-heading">Did you know?</h2>
+        <p>Robust scientific evidence demonstrates the extraordinary value of vaccines and healthy living.
+          Vaccine-preventable diseases have declined by 99% or more. Meanwhile, people practicing healthy habits have
+          far lower rates of chronic diseases and increased life expectancy.</p>
+      </section>
+
+      <section class="making-choice">
+        <h2 id="making-choice-heading">Making the Choice for Health</h2>
+        <p>We all have a role to play in building a healthier, more sustainable world. Get vaccinated according to
+          recommended schedules. Nurture habits like nutritious eating and physical activity. Educate yourself and
+          others about the immense benefits. Together, we can prevent so much suffering and unlock our full human
+          potential.</p>
+      </section>
+
+      <div class="back-to-top-container">
+        <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Back to Top</button>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+    <div class="footer-content">
+      <h3>Ensuring Good Health and Well-being</h3>
+      <p>We strive to ensure that everyone has access to indispensable information regarding good health and well being.
+      </p>
+      <ul class="footer-navigation">
+        <li><a href="home.html" id="Home">Home</a></li>
+        <li><a href="gallery.html" id="Gallery">Gallery</a></li>
+        <li><a href="shop.html" id="Shop">Shop</a></li>
+        <li><a href="profile.html" id="uprofile">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback">Feedback</a></li>
+        <li><a href="Sitemap.html" id="sitemap">Sitemap</a></li>
+        <li><a href="student2_page_editor.html" id="editor" target="_blank">Editor</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+    </div>
+  </footer>
+
+
+
+
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/student2_content.js"></script>
+</body>
+
+</html>
+</code>
+
+student2_page_editor.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/student2_page_editor.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <title>Page Editor - Student 2</title>
+</head>
+
+<body>
+  <header>
+    <a href="home.html"><img class="logo" src="assets/images/logo.webp" alt="logo"></a>
+    <nav>
+      <ul class="navigation">
+        <li><a href="home.html" id="home-link">Home</a></li>
+        <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+        <li><a href="shop.html" id="shop-link">Shop</a></li>
+        <li><a href="profile.html" id="profile-link">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+        <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+      </ul>
+    </nav>
+    <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+  </header>
+
+
+  <main>
+
+    <div class="container">
+      <div class="page-editor-header">
+        <h1>Page Editor</h1>
+        <div class="profile">
+          <img src="assets/images/page_editor/Student_2_Matheesha_Sirisooriya.jpeg" alt="Profile Picture">
+        </div>
+        <p>Name: Matheesha Sirisooriya</p>
+        <p>Student ID: 20230143</p>
+        <p>UoW ID: w2052006</p>
+        <p>Role: Student 2</p>
+        <p>The following pages were edited by me!</p>
+      </div>
+      <div class="content">
+        <div class="section">
+          <h2><i class="fas fa-home"></i> Homepage</h2>
+          <ul>
+            <li>Created a main homepage using HTML and CSS</li>
+            <li>Created a navigation bar for the website, which is to be adapted by all other members</li>
+            <li>Added hover effects to the navigation links in the navbar and used a class to indicate the active page
+            </li>
+            <li>Created a footer for the website with navigation links, contact details, and an anchor to navigate to
+              the top of the page</li>
+            <li>Ensured that the user can access various parts/pages of the website from the homepage</li>
+            <li>Implemented JavaScript functionality, including changing the navigation bar appearance on scroll and
+              creating a parallax effect on the home page elements</li>
+          </ul>
+          <a href="home.html">Link to Homepage</a>
+        </div>
+        <div class="section">
+          <h2><i class="fas fa-comments"></i> Feedback</h2>
+          <ul>
+            <li>Created a feedback form with input fields for name, email, radio buttons for yes/no questions, textarea
+              for improvements, and a star rating system</li>
+            <li>Implemented form validation to ensure required fields are filled out, email format is correct, and at
+              least one option is selected for radio buttons</li>
+            <li>Displayed error messages when the form is submitted with missing or invalid information, highlighting
+              the fields that need attention</li>
+            <li>Included a preview functionality that allows users to review their feedback before submitting</li>
+            <li>Enabled form submission by encoding the data and appending it to a mailto link, which opens the user's
+              default email client with the feedback pre-populated</li>
+            <li>Applied consistent styling and theming throughout the feedback page, aligning with the overall website
+              design</li>
+          </ul>
+          <a href="feedback.html">Link to Feedback</a>
+        </div>
+        <div class="section">
+          <h2><i class="fas fa-book"></i> Content Page - The Power of Prevention</h2>
+          <ul>
+            <li>Created a main topic section with a heading, description, and navigation links to different parts of the
+              content</li>
+            <li>Implemented content sections with responsive layout, displaying an image and corresponding text content
+            </li>
+            <li>Added hover effects on images with smooth scaling transition</li>
+            <li>Included ordered and unordered lists within the content sections, styled with custom bullet points</li>
+            <li>Implemented a "Back to Top" button that appears on scroll, allowing easy navigation to the top of the
+              page</li>
+            <li>Applied consistent styling and theming throughout the content page, aligning with the overall website
+              design</li>
+          </ul>
+          <a href="student2_content.html">Link to Content Page</a>
+        </div>
+        <div class="section">
+          <h2><i class="fas fa-globe"></i> Page Editor</h2>
+          <ul>
+            <li>Created a header section with the student's profile picture, name, student ID, and role</li>
+            <li>Implemented content sections for each page or task assigned to the student, including headings, lists,
+              and links to the corresponding pages</li>
+            <li>Summarize the tasks in which Student 2 was involved</li>
+          </ul>
+          <a href="student2_page_editor.html">Link to Editor</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <h3>Ensuring Good Health and Well-being</h3>
+      <p>We strive to ensure that everyone has access to indispensable information regarding good health and well being.
+      </p>
+      <ul class="footer-navigation">
+        <li><a href="home.html" id="Home">Home</a></li>
+        <li><a href="gallery.html" id="Gallery">Gallery</a></li>
+        <li><a href="shop.html" id="Shop">Shop</a></li>
+        <li><a href="profile.html" id="uprofile">User Profile</a></li>
+        <li><a href="feedback.html" id="feedback">Feedback</a></li>
+        <li><a href="Sitemap.html" id="sitemap">Sitemap</a></li>
+        <li><a href="student2_page_editor.html" id="editor" target="_blank">Editor</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+    </div>
+  </footer>
+  <script src="assets/js/home.js"></script>
+</body>
+
+</html>
+</code>
+
+student4_content.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Content_Page.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nutrition and Healthy Eating Habits</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+        <a href="#"><img class="logo" src="images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link" class="active">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+
+    <!-- Navigation Button -->
+    <div class="navigate-button">
+        <button onclick="navigateToSection('introduction')">Introduction</button>
+        <button onclick="navigateToSection('importance')">Importance of Nutrition</button>
+        <button onclick="navigateToSection('elements')">Key Elements of Healthy Eating Habits</button>
+        <button onclick="navigateToSection('promotion')">Promoting Healthy Eating Habits</button>
+    </div>
+
+
+    <div class="container">
+        <h1>Nutrition and Healthy Eating Habits</h1>
+
+        <h2 id="introduction">Introduction:</h2>
+        <p>Welcome to the Nutrition and Healthy Eating Habits page, where we delve into the significance of good
+            nutrition and the promotion of healthy eating habits in achieving overall well-being and good health. In
+            alignment with the United Nations Sustainable Development Goal #3: Good Health and Well-being, we explore
+            how adopting nutritious diets and healthy eating practices can positively impact individuals and
+            communities.</p>
+
+        <img src="images/h1.jpg" alt="Nutritious Diet">
+
+        <h2 id="importance">The Importance of Nutrition:</h2>
+        <p>Nutrition plays a pivotal role in maintaining a healthy lifestyle. Adequate intake of essential nutrients
+            such as vitamins, minerals, protein, carbohydrates, and fats is essential for optimal physical and mental
+            functioning. Proper nutrition supports growth and development, boosts the immune system, and reduces the
+            risk of chronic diseases such as obesity, diabetes, and heart disease.</p>
+
+        <img src="images/h2.webp" alt="Balanced Diet">
+
+        <h2 id="elements">Key Elements of Healthy Eating Habits:</h2>
+        <ol>
+            <li><strong>Balanced Diet:</strong> A balanced diet comprises a variety of foods from different food groups,
+                including fruits, vegetables, whole grains, lean proteins, and healthy fats. Consuming a diverse range
+                of nutrients ensures that the body receives all the necessary vitamins and minerals for optimal health.
+            </li>
+            <li><strong>Portion Control:</strong> Practicing portion control is vital to prevent overeating and maintain
+                a healthy weight. Being mindful of portion sizes helps individuals regulate their calorie intake and
+                avoid unnecessary weight gain.</li>
+            <li><strong>Hydration:</strong> Staying hydrated is essential for overall well-being. Water is crucial for
+                various bodily functions, including digestion, nutrient absorption, and temperature regulation. Aim to
+                drink an adequate amount of water throughout the day to stay hydrated.</li>
+            <li><strong>Limiting Processed Foods:</strong> Processed foods often contain high amounts of unhealthy fats,
+                sugars, and additives, which can have adverse effects on health. Limiting the consumption of processed
+                foods and opting for whole, natural foods is key to promoting good health.</li>
+            <li><strong>Regular Meal Timing:</strong> Establishing regular meal times and avoiding prolonged periods of
+                fasting helps regulate metabolism and maintain stable blood sugar levels. Aim to eat balanced meals at
+                consistent intervals throughout the day to support energy levels and overall health.</li>
+        </ol>
+
+        <img src="images/h3.jpg" alt="Healthy Eating Habits">
+
+        <h2 id="promotion">Promoting Healthy Eating Habits:</h2>
+        <ul>
+            <li><strong>Education and Awareness:</strong> Educating individuals about the importance of nutrition and
+                providing information on making healthy food choices empowers them to take control of their dietary
+                habits.</li>
+            <li><strong>Access to Nutritious Foods:</strong> Ensuring access to affordable and nutritious foods,
+                particularly in underserved communities, is crucial for promoting healthy eating habits for all.</li>
+            <li><strong>Community Initiatives:</strong> Community-based programs and initiatives, such as community
+                gardens, farmers' markets, and nutrition workshops, play a vital role in promoting healthy eating habits
+                and fostering a supportive environment for positive dietary changes.</li>
+        </ul>
+    </div>
+    <div class="back-to-top-container">
+        <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Back to Top</button>
+    </div>
+    <!-- footer -->
+
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="Page editor student 4.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation -->
+    <script src="js/navigation.js"></script>
+    <script>
+        function navigateToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+
+</html>
+</code>
+
+style.css:
+<code>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- nav bar---- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    position: fixed;
+    border: none;
+    width: 100%;
+    z-index: 110;
+    background-color: transparent;
+}
+
+header.scrolled {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header.scrolled .navigation li a {
+    color: #fff;
+}
+
+.scrolled .navigation li a:hover {
+    color: #0088a9;
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+    width: auto; /* auto to maintain the original size */
+    height: 80px; /* logo height*/
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navigation li a.active {
+    color: #0088a9;
+    text-decoration: underline;
+}
+
+.navigation li a:hover {
+    color: #0088a9;
+}
+
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* Use body and main part to fix the footer */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* ----- footer ----- */
+footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    height: auto;
+    width: 100%;
+    font-family: "Open Sans";
+    padding-top: 30px;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 2rem;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.footer-navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.footer-navigation li {
+    margin: 0 10px;
+}
+
+.footer-navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-navigation a:hover {
+    color: #0088a9;
+}
+
+.footer-bottom {
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: .5;
+    font-weight: 200;
+}
+</code>
+
+css\Content_Page.css:
+<code>
+/* CSS for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* CSS for the container */
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* CSS for the headings */
+  h1, h2 {
+    color: #44c767;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* CSS for the paragraphs */
+  p {
+    padding: 10px 20px;
+    text-align: justify;
+  }
+  
+  /* CSS for the images */
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  /* CSS for the list items */
+  li {
+    padding: 5px 0;
+  }
+  
+  /* CSS for the navigation buttons */
+  .navigate-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    margin-top: 100px;
+  }
+  
+  .navigate-button button {
+    background-color: #44c767;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .navigate-button button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* CSS for the back-to-top button */
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #44c767;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #backToTopBtn:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* CSS for the JavaScript navigation */
+  #navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #navigation:target {
+    display: flex;
+  }
+  
+  #navigation.navigation-content {
+    background-color: #f4f4f4;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #navigation.navigation-content h2 {
+    text-align: center;
+  }
+  
+  #navigation.navigation-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #navigation.navigation-content ul li {
+    padding: 10px 0;
+  }
+  
+  #navigation.navigation-content ul li a {
+    color: #44c767;
+    text-decoration: none;
+  }
+  
+  #navigation.navigation-content ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  #navigation.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #navigation.close:hover {
+    color: #44c767;
+  }
+
+</code>
+
+css\Gallery.css:
+<code>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222327;
+}
+header{
+    background-color: #2F4F4F;
+}
+.header-img h1 {
+    font-size: 6em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: cursive;
+    color: #a9d29a; 
+    text-shadow: 8px 10px 5px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px; 
+}
+
+.header-img p {
+    font-size: 2em;
+    color: #dfd8e5; 
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; 
+    letter-spacing: 1px; 
+}
+
+.header-img hr {
+    width: 60%;
+    margin: 0 auto;
+    border: none;
+    border-top: 2px solid #f7f7f7; 
+}
+
+.header-img {
+    box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.4);
+    margin-top: 80px;
+}
+
+.photobar {
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.photobar::-webkit-scrollbar {
+    display: none;
+}
+
+.bottons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.img-holder img {
+    width: 100%; 
+    height: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.Gallery {
+    display: grid;
+    gap: 15px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.card {
+    background-image: url(images/t2.jpg);
+    padding: 15px;
+    border-radius: 12px;
+    transition: height 0.3s ease-in-out;
+    margin-top: 20px; 
+    width: 250px;
+}
+
+.card .img-holder {
+    width: 100%;
+    height: 275px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card h2,
+.card p {
+    margin-bottom: 15px;
+}
+
+.card p {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+#back,
+#next {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.card-content {
+    height: 25px;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out; 
+}
+
+.card:hover .img-holder {
+    transform: scale(1.3);
+    margin-top: -120px;
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover .card-content {
+    height: 230px;
+    overflow: visible;
+    color: aliceblue;
+}
+
+.card:hover {
+    background-image: url(images/4476-blurred-dark-blue-background.jpg)
+}
+
+.card:hover p,
+.card:hover a {
+    opacity: 1;
+}
+
+.photobar.active {
+    filter: blur(20px);
+}
+
+.colorBtn button {
+    margin: 0 5px; 
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    border: none;
+    cursor: pointer;
+}
+
+.options {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(48, 51, 51, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+    margin-top:260px;
+}
+
+.fontStyleBtn {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.fontStyleBtn button {
+    margin: 0 5px;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.colorBtn p,
+.fontStyleBtn p {
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-family: monospace;
+}
+
+#btn1 {
+    background-color: #080820;
+    outline: 2px solid white; 
+}
+
+#btn2 {
+    background-color: #2F4F4F;
+    outline: 2px solid white;
+}
+
+#btn3 {
+    background-color: #606660;
+    outline: 2px solid white;
+}
+
+#btn4 {
+    background-color: #c7c487;
+    outline: 2px solid white;
+}
+
+#Serif {
+    font-family: serif;
+    background-color: rgb(153, 153, 147);
+}
+
+#Sans-serif {
+    font-family: sans-serif;
+    background-color: rgb(153, 153, 147);
+}
+
+#Monospace {
+    font-family: monospace;
+    background-color: rgb(153, 153, 147);
+}
+
+.extended-view {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4299e1;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+}
+
+.extended-image {
+    width: 50%;
+    float: left;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: red;
+    font-size: 24px;
+}
+
+.extended-info {
+    float: left;
+    max-width: 40%;
+}
+
+.overlay-active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay-active .gallery {
+    filter: blur(5px);
+}
+
+footer {
+    margin-top: 200px;
+}
+
+.aboutme a {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .aboutme a:hover {
+    background-color: #0056b3;
+  }
+.aboutme{
+    margin-top: 35px;;
+    margin-left: 30px;
+}
+</code>
+
+css\page-editor.css:
+<code>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bde0f9;
+    background-image: linear-gradient(120deg, #bde0f9 0%, #9ccfd8 50%, #bde0f9 100%);
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .Details {
+    text-align: center;
+  }
+
+  .Details img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 5px 10px 5px 0px #010000;
+  }
+
+  .names {
+    font-size: 18px;
+  }
+
+  .link {
+    margin: 10px 0;
+  }
+
+  .link a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+</code>
+
+css\sitemap.css:
+<code>
+body{
+    background-image: url(images/j3.png);
+}
+
+
+.node {
+    fill: #336699;
+    transition: fill 0.3s ease;
+}
+
+.node:hover {
+    fill: #225577;
+}
+
+.word a {
+    fill: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.word a:hover {
+    text-decoration: underline; 
+}
+
+.line {
+    stroke: #336699;
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.line:hover {
+    stroke: #225577; /* darker shade of blue on hover */
+}
+.sitemap-container svg {
+    margin-top: 150px;
+}
+</code>
+
+css\student4_page_editor.css:
+<code>
+body {
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 900px;
+    margin: 120px auto 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-editor-header {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.page-editor-header h1 {
+    margin-top: 0;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    color: #333333;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.section h2 i {
+    margin-right: 10px;
+    color: #666666;
+}
+
+.section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.section li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.section li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #666666;
+    position: absolute;
+    left: 0;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+
+.section a {
+    display: inline-block;
+    background-color: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.section a:hover {
+    background-color: #666666;
+}
+</code>
+
+css\style.css:
+<code>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- nav bar---- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    position: fixed;
+    border: none;
+    width: 100%;
+    z-index: 110;
+    background-color: transparent;
+}
+
+header.scrolled {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header.scrolled .navigation li a {
+    color: #fff;
+}
+
+.scrolled .navigation li a:hover {
+    color: #0088a9;
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+    width: auto; /* auto to maintain the original size */
+    height: 80px; /* logo height*/
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navigation li a.active {
+    color: #0088a9;
+    text-decoration: underline;
+}
+
+.navigation li a:hover {
+    color: #0088a9;
+}
+
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* Use body and main part to fix the footer */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* ----- footer ----- */
+footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    height: auto;
+    width: 100%;
+    font-family: "Open Sans";
+    padding-top: 30px;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 2rem;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.footer-navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.footer-navigation li {
+    margin: 0 10px;
+}
+
+.footer-navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-navigation a:hover {
+    color: #0088a9;
+}
+
+.footer-bottom {
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: .5;
+    font-weight: 200;
+}
+</code>
+
+JS\app.js:
+<code>
+// Function to change background color
+function changeBackgroundColor(color) {
+    var colorChange = color.value;
+    document.body.style.backgroundColor = colorChange;
+}
+
+// Function to change font style to serif
+function changeFontSerif() {
+    // Select all elements with class 'card-content'
+    var cardContents = document.querySelectorAll('.card-content');
+
+    // Loop through each card content element
+    cardContents.forEach(function(content) {
+        // Set font-family to serif
+        content.style.fontFamily = 'serif';
+    });
+}
+
+// Function to change font style to sans-serif
+function changeFontSansSerif() {
+    // Select all elements with class 'card-content'
+    var cardContents = document.querySelectorAll('.card-content');
+
+    // Loop through each card content element
+    cardContents.forEach(function(content) {
+        // Set font-family to sans-serif
+        content.style.fontFamily = 'sans-serif';
+    });
+}
+
+// Function to change font style to monospace
+function changeFontMonospace() {
+    // Select all elements with class 'card-content'
+    var cardContents = document.querySelectorAll('.card-content');
+
+    // Loop through each card content element
+    cardContents.forEach(function(content) {
+        // Set font-family to monospace
+        content.style.fontFamily = 'monospace';
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let scrollContainer = document.querySelector(".photobar");
+    let back = document.getElementById("back");
+    let next = document.getElementById("next");
+    let images = document.querySelectorAll(".img-holder img");
+
+    // Add event listener for mouse wheel scrolling
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
+
+    // Add event listener for the back button
+    back.addEventListener("click", () => {
+        scrollContainer.scrollLeft -= 50;
+    });
+
+    // Add event listener for the next button
+    next.addEventListener("click", () => {
+        scrollContainer.scrollLeft += 50; 
+    });
+
+    // Thumbnail click to expand view
+    images.forEach(function(img) {
+        img.addEventListener('click', function() {
+            expandImage(this); // Call the expandImage function with the clicked image
+        });
+    });
+
+    // Function to expand the clicked image
+    function expandImage(img) {
+        // Extract information from adjacent card content
+        const title = img.parentElement.nextElementSibling.querySelector('h2').textContent;
+        const info = img.parentElement.nextElementSibling.querySelector('p').textContent;
+        
+        // Populate the extended view elements
+        const extendedView = document.querySelector('.extended-view');
+        extendedView.querySelector('.image-title').textContent = title;
+        extendedView.querySelector('.image-description').textContent = info;
+        
+        // Update the extended view image
+        const imgSrc = img.src;
+        extendedView.querySelector('.extended-image').src = imgSrc;
+        extendedView.querySelector('.extended-image').alt = title;
+        
+        // Show the extended view
+        extendedView.style.display = 'block';
+    }
+
+    // Close button functionality
+    document.querySelector('.close-button').addEventListener('click', function() {
+        document.querySelector('.extended-view').style.display = 'none';
+    });
+});
+
+</code>
+
+JS\navigation.js:
+<code>
+// change to shadow when navbar scroll
+const header = document.querySelector('header');
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+//change active link part(Select Current page in nav bar)
+// Get all navigation links
+const navLinks = document.querySelectorAll('.navigation li a');
+
+// Add click event listener to each link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Remove active class from all links
+        navLinks.forEach(link => link.classList.remove('active'));
+        // Add active class to the clicked link
+        link.classList.add('active');
+    });
+});
+</code>
+
+JS\sitemap.js:
+<code>
+document.addEventListener("DOMContentLoaded", function() {
+    const nodes = document.querySelectorAll('.word');
+    let currentIndex = 0;
+
+    function setActive(index) {
+        nodes.forEach((node, i) => {
+            if (i === index) {
+                node.classList.add('active');
+            } else {
+                node.classList.remove('active');
+            }
+        });
+    }
+
+    function handleKeyDown(event) {
+        switch (event.key) {
+            case 'ArrowDown':
+                currentIndex++;
+                if (currentIndex >= nodes.length) {
+                    currentIndex = 0;
+                }
+                setActive(currentIndex);
+                break;
+            case 'ArrowUp':
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = nodes.length - 1;
+                }
+                setActive(currentIndex);
+                break;
+            case 'ArrowRight':
+                currentIndex++;
+                if (currentIndex >= nodes.length) {
+                    currentIndex = 0;
+                }
+                setActive(currentIndex);
+                break;
+            case 'ArrowLeft':
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = nodes.length - 1;
+                }
+                setActive(currentIndex);
+                break;
+        } // <-- Closing brace for the switch statement
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+});
+
+</code>
+
+NavBar\navigation.js:
+<code>
+const header = document.querySelector('header');
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    document.getElementById('profile-link').click();
+});
+
+const navLinks = document.querySelectorAll('.navigation li a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+</code>
+
+NavBar\style.css:
+<code>
+/* nav-global styles */
+nav * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- nav-header---- */
+nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    position: fixed;
+    border: none;
+    width: 100%;
+    z-index: 110;
+    background-color: white;
+}
+
+nav-header.scrolled {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav-header.scrolled .nav-navigation li a {
+    color: #fff;
+}
+
+.nav-scrolled .nav-navigation li a:hover {
+    color: #0088a9;
+}
+
+.nav-navigation li,
+.nav-navigation a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav-logo {
+    cursor: pointer;
+    margin-right: auto;
+    width: auto;
+    height: 80px;
+}
+
+.nav-navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-navigation li {
+    margin: 0 15px;
+}
+
+.nav-navigation li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav-navigation li a.nav-active {
+    color: #0088a9;
+    text-decoration: underline;
+}
+
+.nav-navigation li a:hover {
+    color: #0088a9;
+}
+
+.nav-team-btn {
+    margin-right: 100px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.nav-team-btn:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* ----- nav-footer ----- */
+nav-footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    height: auto;
+    width: 100%;
+    font-family: "Open Sans";
+    padding-top: 30px;
+    color: #fff;
+}
+
+.nav-footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav-footer-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 2rem;
+}
+
+.nav-footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.nav-footer-navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.nav-footer-navigation li {
+    margin: 0 10px;
+}
+
+.nav-footer-navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-footer-navigation a:hover {
+    color: #0088a9;
+}
+
+.nav-footer-bottom {
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.nav-footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.nav-footer-bottom span {
+    text-transform: uppercase;
+    opacity: .5;
+    font-weight: 200;
+}
+
+</code>
+
+PageEditor\PageEditor.css:
+<code>
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-editor-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #0f9d58;
+    box-shadow: 0 0 0 4px #0a0a0a;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile img:hover {
+    transform: rotate(360deg);
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.edit-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.edit-details li {
+    margin-bottom: 10px;
+}
+
+.section {
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.light-bg {
+    background-color: #1a1a1a;
+}
+
+.dark-bg {
+    background-color: #222222;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+.section p {
+    margin-bottom: 20px;
+}
+
+.section a {
+    color: #0f9d58;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.section a:hover {
+    color: #2ecc71;
+}
+
+</code>
+
+PageEditor\PageEditor.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Student 3</title>
+    <link rel="stylesheet" href="PageEditor.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="page-editor-header">
+                <h1>Page Editor</h1>
+                <div class="profile">
+                    <img src="../src/Gevin.png" alt="Profile Picture">
+                </div>
+                <div class="profile-details">
+                    <h3>Name: Gevin Nanayakkara</h3>
+                    <p><b>Student ID:</b> 20231959</p>
+                    <p><b>UoW ID:</b> W2051990</p>
+                    <p><b>Role:</b> Student 3</p>
+                </div>
+                <div class="edit-details">
+                    <h2>My Edits</h2>
+                    <ul>
+                        <li>User Profile</li>
+                        <li>Team Page</li>
+                        <li>Content Page</li>
+                        <li>Page Editor</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <div class="section light-bg">
+                    <h2>User Profile</h2>
+                    <p>
+                        Created a User Profile page using HTML, js and CSS.
+                        Added Prompt-Based Information Collection functionality.
+                        Also added Progressive Display of User Output.
+                        I categorized of Prompts with few steps.
+                        Users can skip any info as they need.
+                        Added validation to input fields.
+                    </p>
+                    <a href="/profile.html">User Profile</a>
+                </div>
+                <div class="section dark-bg">
+                    <h2>Team Page</h2>
+                    <ul>
+                        <li>Created a Team page form with Interactive Thumbnails.</li>
+                        <li>Added hover animations and extended details.</li>
+                        <li>Implemented styling animations to the page for make it interactive.</li>
+                    </ul>
+                    <a href="../Student Details/studentDetails.html">Team Page</a>
+                </div>
+                <div class="section light-bg">
+                    <h2>Content Page</h2>
+                    <p>
+                        Created Highlighted heading and easy navigation shortcut buttons.
+                        Added section wise content to easy access.
+                        Added Scrolling animations and styles.
+                    </p>
+                    <a href="../Student%20Content/studentContent.html">Content Page</a>
+                </div>
+                <div class="section dark-bg">
+                    <h2>Page Editor</h2>
+                    <p>
+                        Added my profile picture and my details.
+                        Added content as I developed pages and it's details.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+</code>
+
+Student Content\studentContent.css:
+<code>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.healthyLifestyle{
+    margin: 100px auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blue-bg {
+    background-color: #3498db;
+    color: #fff;
+}
+
+section .content {
+    flex: 1;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+
+section .image {
+    flex: 1;
+    margin-left: 20px;
+    text-align: center;
+}
+
+section .image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animateX {
+    animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.animateY {
+    animation: slideInFromTop 1s ease-in-out forwards;
+}
+
+</code>
+
+Student Content\studentContent.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Lives & Well-being</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../NavBar/style.css">
+    <link rel="stylesheet" href="studentContent.css">
+</head>
+
+<body>
+
+    <!--NavBar-->
+    <nav-header>
+        <a href="../PageEditor/PageEditor.html"><img class="nav-logo" src="../src/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="nav-navigation">
+                <li><a href="/home.html" class="nav-active">Home</a></li>
+                <li><a href="/profile.html" id="nav-profile-link" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pageEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </nav>
+        <button class="nav-team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </nav-header>
+
+    <div class="healthyLifestyle">
+        <header>
+            <h1>Ensuring Healthy Lives & Promoting Well-being</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#section1">Healthy Lifestyle</a></li>
+                <li><a href="#section2">Mental Health</a></li>
+                <li><a href="#section3">Access to Healthcare</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="section1">
+                <div class="content">
+                    <h2>Introduction</h2>
+                    <p>A manner of life that DECREASES THE CHANCE OF DEATH or being gravely ill. While many fatalities,
+                        especially
+                        from lung cancer and coronary heart disease, may be prevented, not all illnesses and diseases
+                        can be
+                        prevented. Several behavioral patterns have been linked in scientific investigations to severe
+                        sickness and
+                        premature mortality. The purpose of this pamphlet is to assist you in making behavioral changes
+                        and
+                        improving your health so that you and your family can live longer, healthier lives.
+                    </p>
+                    <p>A lifestyle that enables you to SATISFY MORE AREAS OF YOUR LIFE. Remaining disease-free is not
+                        the
+                        only
+                        aspect of being healthy. It also concerns social, mental, and physical wellbeing. The goal of
+                        this
+                        ebook is
+                        to assist you in choosing to make better decisions in your
+                    </p>
+                </div>
+                <div class="image">
+                    <img src="../src/helthyLife.webp" alt="Introduction Image">
+                </div>
+            </section>
+            <section id="section2" class="blue-bg">
+                <div class="image">
+                    <img src="../src/mentalHelth.webp" alt="Healthy Lifestyle Image">
+                </div>
+                <div class="content">
+                    <h2>Mental Health</h2>
+                    <p>Our emotional, psychological, and social well-being are all parts of our mental health. It
+                        influences
+                        our
+                        feelings, thoughts, and behaviors. It also influences how we respond to stress, interact with
+                        people, and
+                        make wise decisions.1. Every stage of life, from infancy and adolescence to maturity, is
+                        critical
+                        for mental
+                        health.
+                    </p>
+                    <p>
+                        Why is mental well-being critical to general health?
+                        Both physical and mental well-being are crucial aspects of total health. Depression, for
+                        instance,
+                        raises
+                        the risk for a variety of physical health issues, especially chronic illnesses like diabetes,
+                        heart
+                        disease,
+                        and stroke. In a similar vein, having long-term medical issues might raise your chance of mental
+                        illness.2.
+                    </p>
+                </div>
+            </section>
+            <section id="section3">
+                <div class="content">
+                    <h2>Access to Healthcare</h2>
+                    <p>Our emotional, psychological, and social well-being are all parts of our mental health. It
+                        influences
+                        our
+                        feelings, thoughts, and behaviors. It also influences how we respond to stress, interact with
+                        people, and
+                        make wise decisions.1. Every stage of life, from infancy and adolescence to maturity, is
+                        critical
+                        for mental
+                        health.
+                    </p>
+                    <p>
+                        Why is mental well-being critical to general health?
+                        Both physical and mental well-being are crucial aspects of total health. Depression, for
+                        instance,
+                        raises
+                        the risk for a variety of physical health issues, especially chronic illnesses like diabetes,
+                        heart
+                        disease,
+                        and stroke. In a similar vein, having long-term medical issues might raise your chance of mental
+                        illness.2.
+                    </p>
+                </div>
+                <div class="image">
+                    <img src="../src/AccessToHealthcare.png" alt="Mental Health Image">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!--Footer-->
+    <nav-footer>
+        <div class="nav-footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="nav-footer-navigation">
+                <li><a href="/home.html" class="nav-active">Home</a></li>
+                <li><a href="/profile.html" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </nav-footer>
+
+    <script src="../NavBar/navigation.js"></script>
+    <script src="studentContent.js"></script>
+</body>
+
+</html>
+</code>
+
+Student Content\studentContent.js:
+<code>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const section = entry.target;
+            if (section.id === 'section1' || section.id === 'section3') {
+                section.classList.add('animateX');
+            } else if (section.id === 'section2') {
+                section.classList.add('animateY');
+            }
+            observer.unobserve(section);
+        }
+    });
+}
+
+const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+
+</code>
+
+Student Details\studentDetails.css:
+<code>
+.team{
+    margin: 100px auto;
+}
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.thumbnail {
+    position: relative;
+    width: 200px;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease, border 0.3s ease;
+    border-radius: 20px;
+}
+
+.memberDetails {
+    position: absolute;
+    top: 100%;
+    left: -5%;
+    transform: translateY(-100%);
+    background-color: rgba(211, 211, 211, 0.8);
+    padding: 10px;
+    margin-top: 10px;
+    width: 105%;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform-origin: top;
+    border-radius: 20px;
+}
+
+.thumbnail:hover img {
+    transform: scale(1.1);
+    opacity: 0.7;
+    box-shadow: #484848 0px 0px 10px 0px;
+}
+
+.thumbnail:hover .memberDetails {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+</code>
+
+Student Details\studentDetails.html:
+<code>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../NavBar/style.css">
+    <link rel="stylesheet" href="studentDetails.css">
+</head>
+
+<body>
+
+    <!--NavBar-->
+    <nav-header>
+        <a href="../PageEditor/PageEditor.html"><img class="nav-logo" src="../src/logo.webp" alt="Logo"></a>
+        <nav>
+            <ul class="nav-navigation">
+                <li><a href="/home.html" class="nav-active">Home</a></li>
+                <li><a href="/profile.html" id="nav-profile-link" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pageEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </nav>
+        <button class="nav-team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </nav-header>
+
+    <div class="team">
+        <div style="text-align: center;">
+            <h1>Student Details</h1>
+            <p>About - Hover over the image for details!</p>
+        </div>
+
+        <div class="thumbnails">
+            <div class="thumbnail" id="member1">
+                <img src="../src/Rehab.png" alt="Rehab's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 1</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop Splash Screen & Shop </span>
+                </div>
+            </div>
+            <div class="thumbnail" id="member2">
+                <img src="../src/Matheesha.png" alt="Matheesha's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 2</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop Home Page + template + nav & Feedback</span>
+                </div>
+            </div>
+            <div class="thumbnail" id="member3">
+                <img src="../src/Gevin.png" alt="Gevin's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 3</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop User Profile & Team</span>
+                </div>
+            </div>
+            <div class="thumbnail" id="member4">
+                <img src="../src/Chaamikara.png" alt="Chaamikara's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 4</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop Gallery & Sitemap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <nav-footer>
+        <div class="nav-footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="nav-footer-navigation">
+                <li><a href="/home.html" class="nav-active">Home</a></li>
+                <li><a href="/profile.html" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </nav-footer>
+
+    <script src="../NavBar/navigation.js"></script>
+
+</body>
+
+</html>
+</code>
+

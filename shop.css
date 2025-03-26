@@ -1,0 +1,165 @@
+html {
+    font-size: 62.5%;
+    /*  10 pixels by default */
+}
+
+h1 {
+    font-size: 4rem;
+    color: #112D4E;
+    padding: 0.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+
+    margin-top: 12rem;
+    margin-bottom: 4rem;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+body {
+
+    background-color: #71C9CE;
+    color: #112D4E;
+
+}
+
+main div {
+    width: 400px;
+    height: 500px;
+    background-color: #A6E3E9;
+    border: 2px solid white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-bottom: 40px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-left: 2rem;
+
+}
+
+.Cart {
+
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 700px;
+    border-radius: 10px;
+    position: sticky;
+    top: 10px;
+
+
+
+}
+
+main img {
+
+    width: 400px;
+    height: 250px;
+    margin: 0;
+
+}
+
+
+main button {
+    font-size: 1.5rem;
+    padding: 1em;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 20px;
+    color: black;
+
+
+}
+
+main button:hover {
+    background-color: #112D4E;
+    border: 2px solid white;
+    color: white;
+}
+
+main button:active {
+    box-shadow: 4px 4px 5px white;
+
+}
+
+.addToCart-btn {
+    display: block;
+    text-align: center;
+    margin: 15px auto;
+}
+
+.IncrementDecrement-btn {
+    font-size: 1.5rem;
+    padding: 0.5em;
+    width: 2em;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+main ul {
+
+    list-style: none;
+
+    height: 600px;
+}
+
+main li {
+    font-size: 2rem;
+    margin: 15px;
+    color: #112D4E;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin-left: 2px;
+
+}
+
+hr {
+    border: 2px dotted white;
+}
+
+#CartItems {
+    width: auto;
+    height: 400px;
+    margin: 15px;
+    overflow-y: scroll;
+    border-style: none;
+    box-shadow: 2px 2px 2px 2px white;
+}
+
+#clearCart-btn {
+    background-color: #112D4E;
+    border: 2px solid white;
+    color: white;
+
+}
+
+#checkout-btn:hover {
+    background-color: #E3FDFD;
+    color: #112D4E;
+}
+
+#checkout-Message {
+    font-size: 1.5rem;
+    color: red;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.price {
+    margin-top: 20px;
+}

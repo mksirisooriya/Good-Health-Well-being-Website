@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- nav bar---- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    position: fixed;
+    border: none;
+    width: 100%;
+    z-index: 110;
+    background-color: transparent;
+}
+
+header.scrolled {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header.scrolled .navigation li a {
+    color: #fff;
+}
+
+.scrolled .navigation li a:hover {
+    color: #0088a9;
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+    width: auto; /* auto to maintain the original size */
+    height: 80px; /* logo height*/
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navigation li a.active {
+    color: #0088a9;
+    text-decoration: underline;
+}
+
+.navigation li a:hover {
+    color: #0088a9;
+}
+
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* Use body and main part to fix the footer */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* ----- footer ----- */
+footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    height: auto;
+    width: 100%;
+    font-family: "Open Sans";
+    padding-top: 30px;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 2rem;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.footer-navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.footer-navigation li {
+    margin: 0 10px;
+}
+
+.footer-navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-navigation a:hover {
+    color: #0088a9;
+}
+
+.footer-bottom {
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: .5;
+    font-weight: 200;
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Page</title>
+    <link rel="stylesheet" href="css/Gallery.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <a href="#"><img class="logo" src="images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link" class="active">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <div class="header-img">
+
+        <h1>Gallery</h1>
+        <hr>
+        <p>Healthy Habits Show case</p>
+    </div>
+
+    <div class="options">
+
+        <div class="colorBtn">
+            <p>Change Your Favourite Color 😉</p>
+            <button id="btn1" onclick="changeBackgroundColor(this)" value="#080820"></button>
+            <button id="btn2" onclick="changeBackgroundColor(this)" value="#2F4F4F"></button>
+            <button id="btn3" onclick="changeBackgroundColor(this)" value="#606660"></button>
+            <button id="btn4" onclick="changeBackgroundColor(this)" value="#c7c487"></button>
+        </div>
+
+
+
+
+        <div class="fontStyleBtn">
+            <p>You Can Change Font Style Here!!😎</p>
+            <button id="Serif" onclick="changeFontSerif()">Serif</button>
+            <button id="Sans-serif" onclick="changeFontSansSerif()">Sans</button>
+            <button id="Monospace" onclick="changeFontMonospace()">Monoec</button>
+        </div>
+
+        <div class="aboutme">
+            <a href="Page editor student 4.html" target="_blank">About Me</a>
+        </div>
+    </div>
+    <div class="bottons">
+        <img src="images/left-arrow.png" alt="left arrow" id="back">
+        <div class="photobar">
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-1.jpeg"
+                            alt="A colorful assortment of fresh fruits and vegetables on a wooden table" class="img1">
+                    </div>
+                    <div class="card-content">
+                        <h2>Healthy Eating</h2>
+                        <p>Incorporating a balanced diet rich in fruits, vegetables, and whole grains is essential for
+                            maintaining good health. Make nutritious choices to fuel your body and nourish your mind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-2.jpeg" alt="A women joging" class="img1"></div>
+                    <div class="card-content">
+                        <h2>Fitness</h2>
+                        <p>Regular physical activity is key to staying fit and healthy. Whether it's jogging, cycling,
+                            or hitting the gym, find activities you enjoy and make them part of your daily routine.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-3.jpeg" alt="A man do yoga infront of a rever"
+                            class="img1"></div>
+                    <div class="card-content">
+                        <h2>Mindfulness</h2>
+                        <p>Practicing mindfulness and meditation can help reduce stress, improve focus, and enhance
+                            overall well-being. Take time to quiet your mind, breathe deeply, and connect with the
+                            present moment.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-4.jpeg" alt="A ice mountain" class="img1"></div>
+                    <div class="card-content">
+                        <h2>Nature</h2>
+                        <p>Spending time in nature has numerous health benefits, from reducing anxiety to boosting mood
+                            and creativity. Take a hike, go for a swim, or simply relax in the great outdoors to
+                            recharge your spirit.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-5.jpeg" alt="Gang of children taking with each others"
+                            class="img1"></div>
+                    <div class="card-content">
+
+                        <h2>Social</h2>
+                        <p>Building and maintaining meaningful relationships with others is vital for emotional health
+                            and well-being. Stay connected with friends, family, and community to cultivate a sense of
+                            belonging and support.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-6.jpeg" alt="A women feeling relax in the bath tab"
+                            class="img1"></div>
+                    <div class="card-content">
+
+                        <h2>Self-Care</h2>
+                        <p>Prioritizing self-care activities such as getting enough sleep, practicing relaxation
+                            techniques, and indulging in hobbies you enjoy is essential for overall wellness. Remember
+                            to take time for yourself and recharge your batteries regularly.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gallery">
+                <div class="card">
+                    <div class="img-holder"><img src="images/img-7.jpeg" alt="A man drinking water" class="img1"></div>
+                    <div class="card-content">
+
+                        <h2>Healthy Habits</h2>
+                        <p>Adopting healthy habits like staying hydrated, getting regular exercise, and managing stress
+                            can help prevent illness and promote longevity. Small, consistent actions add up to
+                            significant improvements in your health over time.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="images/right-arrow.png" alt="right arrow" id="next">
+
+    </div>
+
+    <div class="extended-view">
+        <button class="close-button"><i class="fa-regular fa-circle-xmark"></i></button>
+        <img src="" alt="Detailed view" class="extended-image">
+        <div class="extended-info">
+            <h2 class="image-title">Image Title</h2>
+            <p class="image-description">Detailed information about the image...</p>
+
+        </div>
+    </div>
+
+
+    <!--footer-->
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and
+                well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="Home">Home</a></li>
+                <li><a href="gallery.html" id="Gallery">Gallery</a></li>
+                <li><a href="shop.html" id="Shop">Shop</a></li>
+                <li><a href="profile.html" id="uprofile">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback">Feedback</a></li>
+                <li><a href="Sitemap.html" id="sitemap">Sitemap</a></li>
+                <li><a href="Page editor student 4.html" id="editor">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+
+
+    </footer>
+
+    <script src="JS/app.js"></script>
+    <script src="JS/navigation.js"></script>
+</body>
+
+</html>

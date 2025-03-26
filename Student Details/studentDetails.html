@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../NavBar/style.css">
+    <link rel="stylesheet" href="studentDetails.css">
+</head>
+
+<body>
+
+    <!--NavBar-->
+    <nav-header>
+        <a href="../PageEditor/PageEditor.html"><img class="nav-logo" src="../src/logo.webp" alt="Logo"></a>
+        <nav>
+            <ul class="nav-navigation">
+                <li><a href="/home.html" class="nav-active">Home</a></li>
+                <li><a href="/profile.html" id="nav-profile-link" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pageEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </nav>
+        <button class="nav-team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </nav-header>
+
+    <div class="team">
+        <div style="text-align: center;">
+            <h1>Student Details</h1>
+            <p>About - Hover over the image for details!</p>
+        </div>
+
+        <div class="thumbnails">
+            <div class="thumbnail" id="member1">
+                <img src="../src/Rehab.png" alt="Rehab's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 1</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop Splash Screen & Shop </span>
+                </div>
+            </div>
+            <div class="thumbnail" id="member2">
+                <img src="../src/Matheesha.png" alt="Matheesha's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 2</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop Home Page + template + nav & Feedback</span>
+                </div>
+            </div>
+            <div class="thumbnail" id="member3">
+                <img src="../src/Gevin.png" alt="Gevin's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 3</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop User Profile & Team</span>
+                </div>
+            </div>
+            <div class="thumbnail" id="member4">
+                <img src="../src/Chaamikara.png" alt="Chaamikara's Profile Picture">
+                <div class="memberDetails">
+                    <div style="text-align: center;">
+                        <h2>Member 4</h2>
+                    </div>
+                    <span>Role: Web Developer</span><br>
+                    <span>Tasks: Develop Gallery & Sitemap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <nav-footer>
+        <div class="nav-footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="nav-footer-navigation">
+                <li><a href="/home.html" class="nav-active">Home</a></li>
+                <li><a href="/profile.html" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </nav-footer>
+
+    <script src="../NavBar/navigation.js"></script>
+
+</body>
+
+</html>

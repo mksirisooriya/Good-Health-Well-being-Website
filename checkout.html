@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <a href="#"><img class="logo" src="Images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+    <h1> Confirm your order </h1>
+
+    <main id="container">
+
+        <div id="paymentDetails">
+            <h2>Payment Details</h2>
+            <hr class="hrForms">
+            <br>
+            <form id="PD-form">
+                <p>
+                    Required fields are followed by
+                    <strong><span aria-label="required">*</span></strong>
+                </p>
+                <ul>
+                    <li>
+                        <label for="cardNumber">Card Number:*</label>
+                        <input type="tel" id="cardNumber" name="cardnumber" autofocus required><span></span>
+
+                    </li>
+                    <li>
+                        <label for="cardHolderName">Cardholder Name:*</label>
+                        <input type="text" id="cardHolderName" name="cardholder_name" required><span></span>
+                    </li>
+                    <li>
+                        <label for="expiryDate">Expiry Date:*</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY" name="expiry_date" required><span></span>
+                    </li>
+                    <li>
+                        <label for="CCV">CCV:*</label>
+                        <input type="text" id="CCV" name="CCV" required><span></span>
+                    </li>
+                    <li>
+                        <button type="reset">Reset form</button>
+                        <button type="submit">Save changes</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div id="billingAddress">
+            <h2>Billing Address</h2>
+            <hr class="hrForms">
+            <br>
+            <form id="BA-form">
+                <p>
+                    Required fields are followed by
+                    <strong><span aria-label="required">*</span></strong>
+                </p>
+                <ul>
+                    <li>
+                        <label for="addressLine1">Address Line 1:*</label>
+                        <input type="text" id="addressLine1" name="address_line1" required><span></span>
+                    </li>
+                    <li>
+                        <label for="addressLine2">Address Line 2:</label>
+                        <input type="text" id="addressLine2" name="address_line2"><span></span>
+                    </li>
+                    <li>
+                        <label for="addressLine3">Address Line 3:</label>
+                        <input type="text" id="addressLine3" name="address_line3"><span></span>
+                    </li>
+                    <li>
+                        <label for="townOrCity">Town/City:*</label>
+                        <input type="text" id="townOrCity" required name="town_or_city"><span></span>
+                    </li>
+                    <li>
+                        <label for="stateOrCountry">State/Country:</label>
+                        <input type="text" id="stateOrCountry" name="state_or_country"><span></span>
+                    </li>
+                    <li>
+                        <label for="postcodeOrZipCode">Postcode/Zip code:*</label>
+                        <input type="tel" id="postcodeOrZipCode" name="postcode_or_zipcode" required><span></span>
+                    </li>
+                    <li>
+                        <label for="Country">Country:*</label>
+                        <select id="Country" name="country">
+                            <option>Select from list </option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Australia">Australia</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+                    </li>
+                    <li>
+                        <button type="reset">Reset form</button>
+                        <button type="submit">Save changes</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div id="contactDetails">
+            <h2>Contact Details</h2>
+            <hr class="hrForms">
+            <br>
+            <form id="CD-form">
+                <p>
+                    Required fields are followed by
+                    <strong><span aria-label="required">*</span></strong>
+                </p>
+                <ul>
+                    <li>
+                        <label for="firstName">First Name:*</label>
+                        <input type="text" id="firstName" name="first_name" required><span></span>
+                    </li>
+                    <li>
+                        <label for="surName">Surname:*</label>
+                        <input type="text" id="surName" name="surname" required><span></span>
+                    </li>
+                    <li>
+                        <label for="phoneNumber">Phone Number:*</label>
+                        <input type="tel" id="phoneNumber" name="phone_number" required><span></span>
+                    </li>
+                    <li>
+                        <label for="emailAddress">Email Address:*</label>
+                        <input type="email" id="emailAddress" name="email_address" required><span></span>
+                    </li>
+                    <li>
+                        <button type="reset">Reset form</button>
+                        <button type="submit">Save changes</button>
+                    </li>
+                </ul>
+
+            </form>
+        </div>
+        <div id="orderSummary">
+            <h2>Order Summary</h2>
+            <hr class="hrForms">
+            <div id="orderList">
+                <ul id="order-Details"></ul>
+            </div>
+            <h3>Total: Rs <span id="cart-Total"></span></h3>
+            <button id="resetAll-Btn" type="reset">Reset form</button>
+            <button id="submitAll-Btn" type="submit">Confirm order</button>
+            <p id="OrderMsg"></p>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="pageEditor.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+    <script src="checkout.js"></script>
+    <script src="navigation.js"></script>
+</body>
+
+</html>

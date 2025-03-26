@@ -1,0 +1,36 @@
+body{
+    background-image: url(images/j3.png);
+}
+
+
+.node {
+    fill: #336699;
+    transition: fill 0.3s ease;
+}
+
+.node:hover {
+    fill: #225577;
+}
+
+.word a {
+    fill: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.word a:hover {
+    text-decoration: underline; 
+}
+
+.line {
+    stroke: #336699;
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.line:hover {
+    stroke: #225577; /* darker shade of blue on hover */
+}
+.sitemap-container svg {
+    margin-top: 150px;
+}

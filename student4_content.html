@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Content_Page.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nutrition and Healthy Eating Habits</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+        <a href="#"><img class="logo" src="images/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html" id="home-link">Home</a></li>
+                <li><a href="gallery.html" id="gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="shop-link">Shop</a></li>
+                <li><a href="profile.html" id="profile-link" class="active">User Profile</a></li>
+                <li><a href="feedback.html" id="feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="sitemap-link">Sitemap</a></li>
+            </ul>
+        </nav>
+        <button class="team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </header>
+
+
+    <!-- Navigation Button -->
+    <div class="navigate-button">
+        <button onclick="navigateToSection('introduction')">Introduction</button>
+        <button onclick="navigateToSection('importance')">Importance of Nutrition</button>
+        <button onclick="navigateToSection('elements')">Key Elements of Healthy Eating Habits</button>
+        <button onclick="navigateToSection('promotion')">Promoting Healthy Eating Habits</button>
+    </div>
+
+
+    <div class="container">
+        <h1>Nutrition and Healthy Eating Habits</h1>
+
+        <h2 id="introduction">Introduction:</h2>
+        <p>Welcome to the Nutrition and Healthy Eating Habits page, where we delve into the significance of good
+            nutrition and the promotion of healthy eating habits in achieving overall well-being and good health. In
+            alignment with the United Nations Sustainable Development Goal #3: Good Health and Well-being, we explore
+            how adopting nutritious diets and healthy eating practices can positively impact individuals and
+            communities.</p>
+
+        <img src="images/h1.jpg" alt="Nutritious Diet">
+
+        <h2 id="importance">The Importance of Nutrition:</h2>
+        <p>Nutrition plays a pivotal role in maintaining a healthy lifestyle. Adequate intake of essential nutrients
+            such as vitamins, minerals, protein, carbohydrates, and fats is essential for optimal physical and mental
+            functioning. Proper nutrition supports growth and development, boosts the immune system, and reduces the
+            risk of chronic diseases such as obesity, diabetes, and heart disease.</p>
+
+        <img src="images/h2.webp" alt="Balanced Diet">
+
+        <h2 id="elements">Key Elements of Healthy Eating Habits:</h2>
+        <ol>
+            <li><strong>Balanced Diet:</strong> A balanced diet comprises a variety of foods from different food groups,
+                including fruits, vegetables, whole grains, lean proteins, and healthy fats. Consuming a diverse range
+                of nutrients ensures that the body receives all the necessary vitamins and minerals for optimal health.
+            </li>
+            <li><strong>Portion Control:</strong> Practicing portion control is vital to prevent overeating and maintain
+                a healthy weight. Being mindful of portion sizes helps individuals regulate their calorie intake and
+                avoid unnecessary weight gain.</li>
+            <li><strong>Hydration:</strong> Staying hydrated is essential for overall well-being. Water is crucial for
+                various bodily functions, including digestion, nutrient absorption, and temperature regulation. Aim to
+                drink an adequate amount of water throughout the day to stay hydrated.</li>
+            <li><strong>Limiting Processed Foods:</strong> Processed foods often contain high amounts of unhealthy fats,
+                sugars, and additives, which can have adverse effects on health. Limiting the consumption of processed
+                foods and opting for whole, natural foods is key to promoting good health.</li>
+            <li><strong>Regular Meal Timing:</strong> Establishing regular meal times and avoiding prolonged periods of
+                fasting helps regulate metabolism and maintain stable blood sugar levels. Aim to eat balanced meals at
+                consistent intervals throughout the day to support energy levels and overall health.</li>
+        </ol>
+
+        <img src="images/h3.jpg" alt="Healthy Eating Habits">
+
+        <h2 id="promotion">Promoting Healthy Eating Habits:</h2>
+        <ul>
+            <li><strong>Education and Awareness:</strong> Educating individuals about the importance of nutrition and
+                providing information on making healthy food choices empowers them to take control of their dietary
+                habits.</li>
+            <li><strong>Access to Nutritious Foods:</strong> Ensuring access to affordable and nutritious foods,
+                particularly in underserved communities, is crucial for promoting healthy eating habits for all.</li>
+            <li><strong>Community Initiatives:</strong> Community-based programs and initiatives, such as community
+                gardens, farmers' markets, and nutrition workshops, play a vital role in promoting healthy eating habits
+                and fostering a supportive environment for positive dietary changes.</li>
+        </ul>
+    </div>
+    <div class="back-to-top-container">
+        <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Back to Top</button>
+    </div>
+    <!-- footer -->
+
+    <footer>
+        <div class="footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="footer-navigation">
+                <li><a href="home.html" id="footer-home-link">Home</a></li>
+                <li><a href="gallery.html" id="footer-gallery-link">Gallery</a></li>
+                <li><a href="shop.html" id="footer-shop-link">Shop</a></li>
+                <li><a href="profile.html" id="footer-profile-link">User Profile</a></li>
+                <li><a href="feedback.html" id="footer-feedback-link">Feedback</a></li>
+                <li><a href="sitemap.html" id="footer-sitemap-link">Sitemap</a></li>
+                <li><a href="Page editor student 4.html" id="editor-link" target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation -->
+    <script src="js/navigation.js"></script>
+    <script>
+        function navigateToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+
+</html>

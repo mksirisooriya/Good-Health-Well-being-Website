@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    min-height: 100%;
+    background-color: #f2f2f2;  
+}
+
+
+.maintopic {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 120px auto 20px auto; /* Adjust the top margin */
+}
+
+.maintopic h1{
+    font-size: 50px;
+    color: #000;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.maintopic h1::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    display: block;
+    margin: 0 auto;
+    background-color: #0088a9;
+}
+
+.maintopic p{
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px 50px; 
+}
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image{
+    flex: 1;
+    margin-right: 40px;
+    overflow: hidden;
+}
+
+.about-image img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+.about-image:hover img{
+    transform: scale(1.2);
+}
+
+.about-content{
+    flex: 1;
+}
+
+.about-content h2{
+    font-size: 23px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-content p{
+    font-size: 18px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.important-vacci-list ul {
+    list-style-type: disc; /* Change the bullet style */
+    margin-left: 20px; /* Adjust the indentation of the list */
+}
+  
+.important-vacci-list li {
+    margin-bottom: 10px; /* space between bullet points */
+    padding-left: 10px; /* space between the bullet and the text */
+    font-size: 16px; /* AAdjust the font size */
+    color: #333; /* Adjust the text color */
+}
+
+/* ----second section lifestyle---- */
+
+
+.lifestyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.lifestyle-image {
+    flex: 1;
+    margin-left: 40px;
+    overflow: hidden;
+}
+
+.lifestyle-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.lifestyle-image:hover img {
+    transform: scale(1.2);
+}
+
+.lifestyle-content {
+    flex: 1;
+}
+
+.lifestyle-content h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.lifestyle-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.lifestyle-list ul {
+    list-style-type: disc; /* Change the bullet style */
+    margin-left: 20px; /* Adjust the indentation of the list */
+}
+  
+.lifestyle-list li {
+    margin-bottom: 10px; /* space between bullet points */
+    padding-left: 10px; /* space between the bullet and the text */
+    font-size: 16px; /* Adjust the font size */
+    color: #333; /* Adjust the text color*/
+}
+
+.did-you-know {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 40px;
+    text-align: center;
+}
+
+.did-you-know h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.did-you-know p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.making-choice {
+    background-color: #f8f8f8;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    text-align: center;
+}
+
+.making-choice h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.making-choice p {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ----- links( html bookmarks) ------ */
+
+.section-links {
+    margin-bottom: 10px; 
+}
+.section-links h3{
+    padding-bottom: 10px;
+}
+
+.section-links ul {
+    display: flex;
+    list-style: none; 
+}
+
+.section-links li {
+    margin-right: 20px; 
+}
+
+.section-links a {
+    text-decoration: none; /* Remove underline */
+    color: #666; /* Change the link color */
+    font-weight: bold; /* Make the links bold */
+    transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.section-links a:hover {
+    color: #0088a9; /* Change the link color on hover */
+}
+
+
+/* ----back to top---- */
+
+.back-to-top-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#backToTopBtn {
+    background-color: #0088a9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    background-color: #005f75;
+}
+
+:target::before {
+    content: "";
+    display: block;
+    height: 100px; 
+    margin-top: -100px; 
+    visibility: hidden;
+}

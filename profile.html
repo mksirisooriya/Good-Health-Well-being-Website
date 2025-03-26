@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../NavBar/style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <!--NavBar-->
+    <nav-header>
+        <a href="../PageEditor/PageEditor.html"><img class="nav-logo" src="../src/logo.webp" alt="logo"></a>
+        <nav>
+            <ul class="nav-navigation" style="margin-left: 500px">
+                <li><a href="home.html" class="nav-active">Home</a></li>
+                <li><a href="profile.html" id="nav-profile-link" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pageEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </nav>
+        <button class="nav-team-btn" onclick="location.href='../Student Details/studentDetails.html';">Team</button>
+    </nav-header>
+
+    <!--Profile-->
+    <div id="profile">
+        <div class="container">
+            <h1>Build User Profile</h1>
+            <button id="startBtn">Start</button>
+        </div>
+        <div class="container" id="progress-info" style="display: none;">
+            Profile Completed <span id="completion-percentage">0%</span>
+        </div>
+        <div id="progress-container" style="display: none;">
+            <div id="progress-bar"></div>
+        </div>
+        <div class="container" id="prompts" style="display: none;"></div>
+        <div class="container" id="output" style="display: none;"></div>
+    </div>
+
+    <!--Footer-->
+    <nav-footer>
+        <div class="nav-footer-content">
+            <h3>Ensuring Good Health and Well-being</h3>
+            <p>We strive to ensure that everyone has access to indispensable information regarding good health and well
+                being.</p>
+            <ul class="nav-footer-navigation">
+                <li><a href="home.html" class="nav-active">Home</a></li>
+                <li><a href="profile.html" class="nav-active">User Profile</a></li>
+                <li><a href="../PageEditor/PageEditor.html" id="nav-pEditor-link" class="nav-active"
+                        target="_blank">Editor</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer-bottom">
+            <p>Copyright &copy; 2024 | <span>Group 2</span></p>
+        </div>
+    </nav-footer>
+
+    <script src="../NavBar/navigation.js"></script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

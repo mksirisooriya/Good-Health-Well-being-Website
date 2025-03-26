@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-editor-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #0f9d58;
+    box-shadow: 0 0 0 4px #0a0a0a;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile img:hover {
+    transform: rotate(360deg);
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.edit-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.edit-details li {
+    margin-bottom: 10px;
+}
+
+.section {
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.light-bg {
+    background-color: #1a1a1a;
+}
+
+.dark-bg {
+    background-color: #222222;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+.section p {
+    margin-bottom: 20px;
+}
+
+.section a {
+    color: #0f9d58;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.section a:hover {
+    color: #2ecc71;
+}
