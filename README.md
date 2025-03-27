@@ -1,4 +1,4 @@
-# Ensuring Good Health and Well-being Website
+# Good Health and Well-being Website
 
 This is a website developed as a coursework project focused on promoting good health and overall well-being. It provides information and resources to help users lead a healthier and more fulfilling life.
 
